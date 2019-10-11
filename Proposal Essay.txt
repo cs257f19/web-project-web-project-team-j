@@ -1,0 +1,69 @@
+﻿Reddit and Sentiment Analysis: Team J
+James Craig, Cole Hanson, Chait Sayani
+
+
+1. A Summary
+This site allows user to see and visualize trends in reddit comments, whether it be text, sentiment, or user engagement through comments
+
+
+2. The Data Set
+The data set we chose was a csv file of all reddit comments from the month of January in 2015, along with their associated attributes (gilding, replies, and upvotes/downvotes). This data set was shared publicly, and the owner has not outlined a license, however he/she have explicitly allowed for this scraped data set to be used for any purpose. The data set can be found at this link:
+https://mega.nz/#!ysBWXRqK!yPXLr25PgJi184pbJU3GtnqUY4wG7YvuPpxJjEmnb9A
+The r/datasets post can be found here:
+https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/
+
+
+3. Our Intended Audience
+Our intended audience would primarily be academic researchers and analysts who would want to parse through or retreive reddit comments for some sort of media/sentiment analysis. 
+Our hypothesis is that these types of databases are usually used either in an academic context (like the scenarios mentioned in our user stories), or also be interested third parties like ourselves who are curious in seeing what people are talking about online at any given point of time. In an academic context, one could also analyze group behaviors or intergroup interactions in reference to a certain time period or event. Furthermore, entities like marketing teams who would want to assess user reactions to campaigns or events would find this dataset helpful.
+
+
+4. User Stories, Personas, and Requirements
+Our first user story involves the academic researcher. This type of user would be interested in examining questions and trends related to group behavior and sentiments, and would thus also want to publish these results in academic journals. The key features that would be of relevance to this type of user would be a sorting and filtering function, text search, and analytics with data visualization. The visualization aspect of this portal would be especially useful since their main reason for using our platform is to examine and parse the trends, as opposed to wanting to examine individual comments.
+
+
+Another user story involves a typical reddit user. This kind of user might want to filter search results by their favorite subreddit, so that they can look for popular keywords and sort comments based on number of upvotes, trending comments, etc. The most important features for the casual-redditor user would be the customizable search function and a comment view function. These features support the casual-redditor’s goal; to view individual comments returned by a customizable search. 
+User Story Card 1:
+As an academic researcher, I want to be able to view trends in upvotes/downvotes based on topics, so that I can analyze how people feel about topics over time.
+
+
+User story Card 1.5
+As an academic researcher, I want to be able to view trends in commenting based on topics, so I can analyze how people engage in topics over time
+
+
+User Story Card 2:
+As a marketing entity, I want to be able to see how people react to certain posts or campaigns over time so that I can see what “works”. I want to also be able to sort and filter posts by campaign, topic, and popularity, so I can analyze their strategies.
+
+
+Persona 1:
+Sean Topel, internet researcher. 20’s, US, studies at a university/works as a journalist on internet trends. Goals include finding relevant data to a specific project and having enough information to analyze a given trend or subreddit. Sean’s attitude is inquisitive, he’s gone pretty deep into the internet to find this site and hopes it will be useful. Sean will most likely begin by searching keywords to determine if relevant information is present, then try to generate more specific data by modifying date ranges, upvotes, etc.
+
+
+5. Requirements
+
+
+        Functional
+* Render search query in list view
+* Sort comments by inputted parameters (Date, Top, Controversial)
+* Search Comments by inputted parameters (Date, Subreddit, Top, Controversial)
+* Generate visualizations for select data subsets
+* Run sentiment analysis on comments
+* Add sentiment field to dataset 
+
+
+        Non-functional 
+* Optimize request handling for <10 sec. response 
+* Add Icons to indicate comment sentiment
+* Add colorblind assist mode 
+* Document process of creating data visualizations 
+* Add HTML accessibility tags 
+* Add Language support 
+        
+
+
+
+
+6. Collaboration Plan
+Chait Sayani - Focus on database schema and orientation
+Cole Hanson - Focus on front end html/css, database API 
+James - Focus on data analytics, pre-processed data, and user design

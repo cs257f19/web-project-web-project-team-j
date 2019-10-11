@@ -67,3 +67,5 @@ Sean Topel, internet researcher. 20’s, US, studies at a university/works as a 
 Chait Sayani - Focus on database schema and orientation
 Cole Hanson - Focus on front end html/css, database API 
 James - Focus on data analytics, pre-processed data, and user design
+
+We plan to use kanban in our development lifecycle, and this implemented through Trello. In addition to kanban, we will have once-a-week mettings to split responsibilities for the coming week. 

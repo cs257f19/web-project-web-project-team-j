@@ -1,0 +1,14 @@
+	
+User Stories 
+Our first user story involves the academic researcher. This type of user would be interested in examining questions and trends related to group behavior and sentiments, and would thus also want to publish these results in academic journals. The key features that would be of relevance to this type of user would be a sorting and filtering function, text search, and analytics with data visualization. The visualization aspect of this portal would be especially useful since their main reason for using our platform is to examine and parse the trends, as opposed to wanting to examine individual comments.
+
+Another user story involves a typical reddit user. This kind of user might want to filter search results by their favorite subreddit, so that they can look for popular keywords and sort comments based on number of upvotes, trending comments, etc. The most important features for the casual-redditor user would be the customizable search function and a comment view function. These features support the casual-redditor’s goal; to view individual comments returned by a customizable search. 
+
+User Story Card 1:
+As an academic researcher, I want to be able to view trends in upvotes/downvotes based on topics, so that I can analyze how people feel about topics over time.
+
+User story Card 1.5:
+As an academic researcher, I want to be able to view trends in commenting based on topics, so I can analyze how people engage in topics over time
+
+User Story Card 2:
+As a marketing entity, I want to be able to see how people react to certain posts or campaigns over time so that I can see what “works”. I want to also be able to sort and filter posts by campaign, topic, and popularity, so I can analyze their strategies.

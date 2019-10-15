@@ -5,8 +5,15 @@ body{
   opacity: 0.9;
   background-blend-mode: luminosity;
 }
+input[type=text] {
+  float: right;
+  display:block;
+  margin-top: 10px;
+  margin-right: 20px;
+  border: none;
+}
 h1  {
-  text-align: center;
+  text-align: left;
   background-color: lightblue;
   opacity: 0.9;
   color: red;
@@ -18,13 +25,18 @@ h2  {
   background-color: lightblue;
   opacity: 0.9;
   font-weight: bold;
-  width: 80%;
 }
+#tag  {
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
 
+}
 p {
   text-align: center;
   background-color: lightblue;
-  width: 80%;
+  color: black;
+  font-weight: normal;
 }
 
 ul  {
@@ -40,7 +52,7 @@ li  {
 }
 
 li a  {
-  background-color:
+  /*background-color:*/
   padding-left: 8px;
   padding-right: 8px;
   color: black;

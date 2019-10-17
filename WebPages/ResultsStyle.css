@@ -7,7 +7,6 @@ body{
 }
 h1  {
   text-align: center;
-  background-color: lightblue;
   opacity: 0.9;
   color: red;
   font-weight: bold;
@@ -15,7 +14,6 @@ h1  {
 
 h2  {
   text-align: center;
-  background-color: lightblue;
   opacity: 0.9;
   font-weight: bold;
   width: 80%;
@@ -33,7 +31,7 @@ p {
   width: 75%;
   height:100px;
   display: table;
-  background-color: #f9f9f9;
+  background-color: #bdbdbd;
   -webkit-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.4);
   -moz-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.4);
 box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.4);
@@ -128,11 +126,8 @@ input{
 }
 
 .abt-data{
-		font-family: Open Sans;
-	
+	font-family: Open Sans;
 }
-
-
 
 embed {
   text-align: center;
@@ -141,7 +136,5 @@ embed {
 }
 
 .search {
-	
 	margin-left:300px;
-	
 }

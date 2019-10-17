@@ -1,19 +1,18 @@
-
 body{
-  background-color: white;
-  background-image: url(ReddBackground.jpg);
   opacity: 1.0;
   background-blend-mode: luminosity;
+  text-decoration:none;
+  
 }
 h1  {
   text-align: center;
   opacity: 0.9;
-  color: red;
   font-weight: bold;
 }
 
 h2  {
   text-align: center;
+  background-color: lightblue;
   opacity: 0.9;
   font-weight: bold;
   width: 80%;
@@ -25,15 +24,15 @@ p {
 }
 
 .grid-container {
-  border-radius: 15px;
+  border-radius: 10px;
   margin:auto;
   width: 75%;
   height:100px;
   display: table;
-  background-color: #bdbdbd;
+  background-color:#e9ecef;
   -webkit-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.4);
   -moz-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.4);
-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.4);
+  box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.4);
 }
 .col1{
 	display: table-cell;
@@ -74,22 +73,45 @@ i{
 	margin-left:auto;
 }
 
-ul  {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+nav{
+	text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+	font-weight:bold;
+	background-color: #3E4551;	
+	margin:0;
+    overflow: hidden;
 }
 
-li  {
+nav ul{
+	color:white;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li  {
+  float: left;
+  color:white;
+  text-decoration:none;
   display: inline;
   border-right: 1px solid #555;
 }
 
 li a  {
-  padding-left:8px;
-  padding-right: 8px;
-  color: black;
+  color:white;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top:32px;
+  font-size:20px;
 }
+
+li a:hover {
+  background-color: #111;
+}
+
+li a:active {
+  background-color: #;
+}
+
 search-container{
 	width:100%;
 	align-content: center;
@@ -124,8 +146,11 @@ input{
 }
 
 .abt-data{
-	font-family: Open Sans;
+		font-family: Open Sans;
+	
 }
+
+
 
 embed {
   text-align: center;
@@ -134,5 +159,6 @@ embed {
 }
 
 .search {
-	margin-left:300px;
+	margin-left:300px;	
 }
+

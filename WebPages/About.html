@@ -1,68 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="ReddStyle.css">
   <title>Web Team J Reddimentary Site</title>
-  <script src="https://kit.fontawesome.com/858dd3015d.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.cm/css?family=Raleway&display=swap" rel="stylesheet">
-  <link href="Home.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link href="About.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
- <nav>
-  	<div class="navbar wrapper">
-  		<ul>
-  		<li>
-   		<div class ="brand">
-      		<a href="#" class="brand-logo">Reddimentary</a>
-      		<p id="tag">Curated, Searchable Reddit Trends </p>
-   		</div>
-  	  	</li>
-      	<li><a href="default.html">Home</a></li>
-      	<li><a href="aboutdata.html">About the Data</a></li>
-      	<li><a href="datavis.html">Data Visualizations</a></li>
-    	</ul>
-  	</div>
-  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="home.html">Reddimentary<small>Curated, Searchable Reddit Trends</small></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="home.html">Home<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="about.html">About the data</a>
+      <a class="nav-item nav-link" href="dataviz.html">Data visualizations</a>
+    </div>
+  </div>
+</nav>
+
+  <br>
   <br>
   <div class="search-container">
-  	<input type="text" class="search" placeholder="Search..">
+    <form class="form-inline ml-auto mr-auto w-100">
+      <input class="form-control form-control-md ml-25 mr-20 w-75" type="text" placeholder="Search for users, keywords, upvotes and more!"
+      aria-label="Search">
+      <div class="input-group-append mr-0">
+        <button class="btn btn-outline-primary mr-auto" type="button">Search</button>
+      </div>
+    </form>
   </div>
- <h1>
- 	About The Data
- </h1>
+  <br>
+  <br>
+
+  <h1>
+  	About The Data
+  </h1>
+
+ <div class="text-container">
+ <br>
   <h2>
   	What is this data?
   </h2>
   <p>
   	This data is an assortment of all reddit comments from r/politics from the month of November in 2016. The data came in the form of a json dump with the comments, upvotes/downvotes, guild status, commenter id and date attatched.
   </p>
+  <br>
   <h2>
   	Where did we get this data?
   </h2>
   <p>
-  	We sourced our data from the top comment from r/datasets, which we happened upon from searching the term "dataset" into the reddit search bar. We downloaded the son dump from academictorrents.com, but ended up using the one month of data hosted on the following mega link: 
+  	We sourced our data from the top comment from r/datasets, which we happened upon from searching the term "dataset" into the reddit search bar. We downloaded the son dump from academictorrents.com, but ended up using the one month of data hosted on the following mega link:
 	</p>
-	<a href="https://mega.nz/#!ysBWXRqK!yPXLr25PgJi184pbJU3GtnqUY4wG7YvuPpxJjEmnb9A.">	
-  https://mega.nz/#!ysBWXRqK!yPXLr25PgJi184pbJU3GtnqUY4wG7YvuPpxJjEmnb9A.</a>	
+	<a href="https://mega.nz/#!ysBWXRqK!yPXLr25PgJi184pbJU3GtnqUY4wG7YvuPpxJjEmnb9A.">
+  https://mega.nz/#!ysBWXRqK!yPXLr25PgJi184pbJU3GtnqUY4wG7YvuPpxJjEmnb9A.</a>
+  <br>
   <p>
-  The magnet link to the full set of data can be found here: 
- </p> 
- <a href="magnet:xt=urn:btih:7690f71ea949b868080401c749e878f98de34d3d&dn=reddit%5Fdata&tr=http%3A%2F%2Ftracker.pushshift.io%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80.">magnet:xt=urn:btih:7690f71ea949b868080401c749e878f98de34d3d&dn=reddit%5Fdata&tr=http%3A%2F%2Ftracker.pushshift.io%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80.</a>
+
+  The magnet link to the full set of data can be found <a href="magnet:xt=urn:btih:7690f71ea949b868080401c749e878f98de34d3d&dn=reddit%5Fdata&tr=http%3A%2F%2Ftracker.pushshift.io%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80.">here</a>:
+ </p>
   <p>
-    No licensing information was given on this dataset, since it was scraped by an individual, however the author gave explicit permition to use this data for academic use and did not list any restrictions that would limit our use of this data, thus it is our belief that this is a permissable use of the data which is inline with the author specifications. The author that created this data set is reddit user u/Stuck_In_the_Matrix who posted this database in 2015 and updated it in 2017. 
+    No licensing information was given on this dataset, since it was scraped by an individual, however the author gave explicit permition to use this data for academic use and did not list any restrictions that would limit our use of this data, thus it is our belief that this is a permissable use of the data which is inline with the author specifications. The author that created this data set is reddit user u/Stuck_In_the_Matrix who posted this database in 2015 and updated it in 2017.
   </p>
-  
+  <br>
+
 <h2>
 	Citation and Manipulations
 </h2>
 <p>
 	The entire data set contains all publicly available Reddit comments over the history of reddit up through 2015. There are about 1.7 billion comments, however we filtered the data to all the comments in the election month of 2017 due to storage and scope limitations. There are no geographic restrictions on the comments, however we tried to filter all the comments from the r/political subreddit to make our analysis relevant to political discourse. The overview and original post can be found at this link : https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/
-  There is no citation provided, but the link above should suffice in terms of tracing the datasets technical documentation. Finally, the data is mostly in its unaltered forms, we only removed certain columns (like the subreddit ID) that were homogenous across all comments or not relevant to our analysis. 
+  There is no citation provided, but the link above should suffice in terms of tracing the datasets technical documentation. Finally, the data is mostly in its unaltered forms, we only removed certain columns (like the subreddit ID) that were homogenous across all comments or not relevant to our analysis.
 
 </p>
+</div>
 
 </body>
   </html>

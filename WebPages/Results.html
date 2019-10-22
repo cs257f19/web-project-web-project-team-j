@@ -1,137 +1,181 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="ResultsStyle.css">
   <title>Web Team J Reddimentary Site</title>
-  <script src="https://kit.fontawesome.com/858dd3015d.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.cm/css?family=Raleway&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/858dd3015d.js" crossorigin="anonymous"></script>
+  <link href="ResultsStyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
- <nav>
-  	<div class="navbar wrapper">
-  		<ul>
-  		<li>
-   		<div class ="brand">
-      		<a href="#" class="brand-logo">Reddimentary</a>
-      		<p id="tag">Curated, Searchable Reddit Trends </p>
-   		</div>
-  	  	</li>
-      	<li><a href="default.html">Home</a></li>
-      	<li><a href="aboutdata.html">About the Data</a></li>
-      	<li><a href="datavis.html">Data Visualizations</a></li>
-    	</ul>
-  	</div>
-  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="home.html">Reddimentary<small>Curated, Searchable Reddit Trends</small></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="home.html">Home<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="about.html">About the data</a>
+      <a class="nav-item nav-link" href="dataviz.html">Data visualizations</a>
+    </div>
+  </div>
+</nav>
+
+  <br>
   <br>
   <div class="search-container">
-  	<input type="text" placeholder="Search..">
+    <form class="form-inline ml-auto mr-auto w-100">
+      <input class="form-control form-control-md ml-25 mr-20 w-100" type="text" placeholder="Search for users, keywords, upvotes and more!"
+      aria-label="Search">
+      <div class="input-group-append mr-auto ml-auto mt-100">
+        <button class="btn btn-outline-primary" type="button">Search</button>
+      </div>
+    </form>
   </div>
   <br>
-  
   <br>
+
+
   <div class="result-section">
-  
-  <div id ="result" class="grid-container">
-  	<div class="col1">
-  	<div id = "score">
-  		<i class="fas fa-arrow-alt-circle-up"></i>
-  		<p>-1</p>
-  	</div>
-  	<div id = "sentiment">
-  		<i class="far fa-smile"></i>
-  		<p>51%</p>
-  	</div>
-  	</div>
-  		<div id = "comment" class="col2">
-  			<p>Yeah, that's what I'm worried about.  I'm wondering if I should take a few days off</p>
-  		</div>
-  	<div id = "info" class="col3">
-  		<div id = "user" class="row1">
-  		    <p>u/PigNamedBenis</p>
-  	    </div>
-  	    <div id = "subreddit" class="row1">
-  		    <p>r/pol</p>
-  	    </div>
-  	    <div id = "created" class="row1">
-  		    <p>Created: <br>11/01/2016 @ 1:48am (UTC)</p>
-  	    </div>
-  	    <div id = "link" class="row1">
-  		    <a href="http://reddit.com/t3_5757su">view post</a>
-  	    </div>
-  	</div>
+
+  <div class="card w-75 ml-auto mr-auto">
+    <div class="card-header">
+      <div class="row">
+        u/PigNamedBenis
+        <div class="icons float-right">
+          <span class="border border-warning rounded" id = "score">
+  		      <i class="fas fa-arrow-alt-circle-up"></i>
+  		      <span>  -1</span>
+          </span>
+  	      <span class="border border-success rounded" id = "sentiment">
+  		        <i class="far fa-smile"></i>
+  		        <span>51%</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  <div class="card-body">
+    <h5 class="card-title">"Yeah, that's what I'm worried about.  I'm wondering if I should take a few days off"</h5>
+    <div class="reddit-link ml-10">
+    <a href="#" id="link" class="btn btn-primary ml-75 float-right">go to post</a>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Subreddit: </li>
+    <li class="list-group-item">Created (UTC):</li>
+  </ul>
   </div>
   <br>
-  
-  <div id ="result" class="grid-container">
-  	<div class="col1">
-  	<div id = "score">
-  		<i class="fas fa-arrow-alt-circle-up"></i>
-  		<p>-1</p>
-  	</div>
-  	<div id = "sentiment">
-  		<i class="far fa-smile"></i>
-  		<p>51%</p>
-  	</div>
-  	</div>
-  		<div id = "comment" class="col2">
-  			<p>Yeah, that's what I'm worried about.  I'm wondering if I should take a few days off</p>
-  		</div>
-  	<div id = "info" class="col3">
-  		<div id = "user" class="row1">
-  		    <p>u/PigNamedBenis</p>
-  	    </div>
-  	    <div id = "subreddit" class="row1">
-  		    <p>r/pol</p>
-  	    </div>
-  	    <div id = "created" class="row1">
-  		    <p>Created: <br>11/01/2016 @ 1:48am (UTC)</p>
-  	    </div>
-  	    <div id = "link" class="row1">
-  		    <a href="http://reddit.com/t3_5757su">view post</a>
-  	    </div>
-  	</div>
+  <br>
+  <br>
+
+  <div class="card w-75 ml-auto mr-auto">
+    <div class="card-header">
+      <div class="row">
+        u/PigNamedBenis
+        <div class="icons float-right">
+          <span class="border border-warning rounded" id = "score">
+            <i class="fas fa-arrow-alt-circle-up"></i>
+            <span>  -1</span>
+          </span>
+          <span class="border border-success rounded" id = "sentiment">
+              <i class="far fa-smile"></i>
+              <span>51%</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  <div class="card-body">
+    <h5 class="card-title">"Yeah, that's what I'm worried about.  I'm wondering if I should take a few days off"</h5>
+    <div class="reddit-link ml-10">
+    <a href="#" id="link" class="btn btn-primary ml-75 float-right">go to post</a>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Subreddit: </li>
+    <li class="list-group-item">Created (UTC):</li>
+  </ul>
   </div>
   <br>
-  
-  <div id ="result" class="grid-container">
-  	<div class="col1">
-  	<div id = "score">
-  		<i class="fas fa-arrow-alt-circle-up"></i>
-  		<p>-1</p>
-  	</div>
-  	<div id = "sentiment">
-  		<i class="far fa-smile"></i>
-  		<p>51%</p>
-  	</div>
-  	</div>
-  		<div id = "comment" class="col2">
-  			<p>Yeah, that's what I'm worried about.  I'm wondering if I should take a few days off</p>
-  		</div>
-  	<div id = "info" class="col3">
-  		<div id = "user" class="row1">
-  		    <p>u/PigNamedBenis</p>
-  	    </div>
-  	    <div id = "subreddit" class="row1">
-  		    <p>r/pol</p>
-  	    </div>
-  	    <div id = "created" class="row1">
-  		    <p>Created: <br>11/01/2016 @ 1:48am (UTC)</p>
-  	    </div>
-  	    <div id = "link" class="row1">
-  		    <a href="http://reddit.com/t3_5757su">view post</a>
-  	    </div>
-  	</div>
+  <br>
+  <br>
+
+  <div class="card w-75 ml-auto mr-auto">
+    <div class="card-header">
+      <div class="row">
+        u/PigNamedBenis
+        <div class="icons float-right">
+          <span class="border border-warning rounded" id = "score">
+            <i class="fas fa-arrow-alt-circle-up"></i>
+            <span>  -1</span>
+          </span>
+          <span class="border border-success rounded" id = "sentiment">
+              <i class="far fa-smile"></i>
+              <span>51%</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  <div class="card-body">
+    <h5 class="card-title">"Yeah, that's what I'm worried about.  I'm wondering if I should take a few days off"</h5>
+    <div class="reddit-link ml-10">
+    <a href="#" id="link" class="btn btn-primary ml-75 float-right">go to post</a>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Subreddit: </li>
+    <li class="list-group-item">Created (UTC):</li>
+  </ul>
   </div>
   <br>
-  
-  
-  
-  
+  <br>
+  <br>
+
+  <div class="card w-75 ml-auto mr-auto">
+    <div class="card-header">
+      <div class="row">
+        u/PigNamedBenis
+        <div class="icons float-right">
+          <span class="border border-warning rounded" id = "score">
+            <i class="fas fa-arrow-alt-circle-up"></i>
+            <span>  -1</span>
+          </span>
+          <span class="border border-success rounded" id = "sentiment">
+              <i class="far fa-smile"></i>
+              <span>51%</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  <div class="card-body">
+    <h5 class="card-title">"Yeah, that's what I'm worried about.  I'm wondering if I should take a few days off"</h5>
+    <div class="reddit-link ml-10">
+    <a href="#" id="link" class="btn btn-primary ml-75 float-right">go to post</a>
+    </div>
   </div>
-  
-  
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Subreddit: </li>
+    <li class="list-group-item">Created (UTC):</li>
+  </ul>
+  </div>
+  <br>
+  <br>
+  <br>
+
+
+
+
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 </body>

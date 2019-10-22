@@ -5,10 +5,32 @@ body{
 
 }
 
+
+h1  {
+  font-family: Open Sans;
+  text-align: justify;
+  font-weight: bolder;
+}
+
+h2  {
+  font-family: Open Sans;
+  text-align: justify;
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+p {
+  font-family: Open Sans;
+  text-align: justify;
+  display: block;
+  width: 80%;
+}
+
+
 .navbar-brand{
   font-family: Raleway;
   font-weight:bold;
-  color:white;
+  color: #F1702D !important;
   font-size: 36px;
   margin-right:40px;
 }
@@ -56,30 +78,7 @@ body{
     color: #fff;
 }
 
-h1  {
-  font-family: Open Sans;
-  text-align: center;
-  opacity: 0.9;
-  font-weight: bolder;
-}
 
-h2  {
-  font-family: Open Sans;
-  text-align: justify;
-  opacity: 0.9;
-  font-weight: bold;
-}
-
-p {
-  font-family: Open Sans;
-  text-align: justify;
-  display: block;
-  width: 80%;
-}
-
-.text-container{
-  margin-left: 20%;
-}
 
 embed {
   text-align: center;
@@ -87,12 +86,5 @@ embed {
   height: 75vw;
 }
 
-.word-cloud{
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-	height:600px;
-	border: 2px solid;
 
 }

@@ -2,7 +2,7 @@ import unittest
 from datasource import *
 
 
-class DataSourceTester(unittest.TestCase)
+class DataSourceTester(unittest.TestCase):
     def setup(self):
         self.ds = DataSource()
 

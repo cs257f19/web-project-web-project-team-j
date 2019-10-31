@@ -4,7 +4,7 @@ import getpass
 class DataSource:
 
 	def __init__(self):
-		self.connection = None
+		self.connection = psycopg2.connect(dbname = 'sayanic', user = 'sayanic', password = 'green299sunshine')
 
 	def connector(self,user, password):
 		'''

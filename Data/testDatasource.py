@@ -3,15 +3,17 @@ from datasource import *
 
 
 class DataSourceTester(unittest.TestCase):
-    
+
     def setUp(self) -> None:
         self.ds = DataSource()
 
     def test_getEdited_true(self):
+        input = 'TRUE'
         for result in self.ds.getEdited(input):
             self.assertEqual(result[9],'TRUE')
 
     def test_getEdited_false(self):
+        input = 'FALSE'
         for result in self.ds.getEdited(input):
             self.assertEqual(result[9],'FALSE')
 

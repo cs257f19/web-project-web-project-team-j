@@ -12,18 +12,18 @@ class DataSource:
 			user - username (also the name of the database)
 			password - the passsword for this database on perlman
 
-		Returns: a database connection 
+		Returns: a database connection
 
-		Note: exits if a connection is not established 
+		Note: exits if a connection is not established
 		'''
 		try:
-			connection = psycopg2.connect(dbname = user, user = user, password = password)
+			self.connection = psycopg2.connect(dbname = user, user = user, password = password)
 		except Exception as e:
 			print('Connection Error',e)
 			exit()
 		return connection
 
-	def getScoreAbove(self,connection,score):
+	def getScoreAbove(self,score):
 		'''
 		Retrieves all comments with a score greater than the specified score
 
@@ -35,7 +35,7 @@ class DataSource:
 			A collection of comments with scores above the specified score, or None if the query fails
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE score > " + str(score) + "ORDER BY score DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -43,19 +43,19 @@ class DataSource:
 			print("Uh oh, something went wrong",e)
 			return None
 
-	def getScoreBelow(self, connection, score):
+	def getScoreBelow(self, score):
 		'''
 		Retrieves all comments with a score less than the specified score
 
 		Parameters:
 			connection- the connection to the database
-			score - get all comments from the data with a score lesser than this score 
+			score - get all comments from the data with a score lesser than this score
 
 		Returns:
 			A collection of all comments with scores below the specified score, or None if the query fails
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE score < " + str(score) + "ORDER BY score DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -63,9 +63,9 @@ class DataSource:
 			print("Uh oh, something went wrong",e)
 			return None
 
-	def getScoreInRange(self,connection,start,end):
+	def getScoreInRange(self,start,end):
 		'''
-		Retrieves all comments with a score between the start and end bounds 
+		Retrieves all comments with a score between the start and end bounds
 
 		Parameters:
 			connection- the connection to the database
@@ -76,7 +76,7 @@ class DataSource:
 			A collection of all comments with scores between the specified bounds, or None if the query fails
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE score BETWEEN " + str(start) + " AND " + str(end)
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -84,9 +84,9 @@ class DataSource:
 			print("Uh oh, something went wrong",e)
 			return None
 
-	def getGuilded(self,connection):
+	def getGuilded(self):
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE gilded=1"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -94,18 +94,18 @@ class DataSource:
 			raise e
 			return None
 
-	def getControversial(self,connection):
+	def getControversial(self):
 		'''
-		Retrieves all comments with a controversial flag 
+		Retrieves all comments with a controversial flag
 
 		Parameters:
 			connection- the connection to the database
 
 		Returns:
-			A collection of all comments with controversial flags 
+			A collection of all comments with controversial flags
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE controversiality=1"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -122,7 +122,7 @@ class DataSource:
 			keyword- get all comments with a comment body that contains this keyword
 
 		Returns:
-			A collection of all comments that contain the keyword 
+			A collection of all comments that contain the keyword
 		'''
 		pass
 
@@ -147,8 +147,20 @@ class DataSource:
 	def visualizeSentiment(self):
 		pass
 
-	def getEdited(self,connection,input):
-		pass
+	def getEdited(self,input):
+		if input == 'TRUE':
+			cursor = self.connection.cursor()
+			query = "SELECT * FROM mydata WHERE edited='TRUE'"
+			cursor.execute(query)
+			return cursor.fetchall()
+		elif input == 'FALSE':
+			cursor = self.connection.cursor()
+			query = "SELECT * FROM mydata WHERE edited='FALSE'"
+			cursor.execute(query)
+			return cursor.fetchall()
+		else:
+			print("Uh oh, something went wrong")
+			return None
 
 
 def main():
@@ -159,7 +171,7 @@ def main():
 	password = 'green299sunshine'
 
 	connection = ds.connector(user,password)
-	results = ds.getControversial(connection)
+	#results = ds.getControversial(connection)
 	#results = ds.getScoreInRange(connection,2,10)
 
 	if results is not None:

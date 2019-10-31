@@ -10,23 +10,23 @@ class DataSourceTester(unittest.TestCase):
         for result in self.ds.getEdited(input):
             self.assertEqual(result[9],'TRUE')
 
-    def test_getEdited_false(self,ds):
+    def test_getEdited_false(self):
         for result in self.ds.getEdited(input):
             self.assertEqual(result[9],'FALSE')
 
-    def test_getEdited_otherString(self,ds):
+    def test_getEdited_otherString(self):
         input = "random"
         self.assertEqual(self.ds.getEdited(input),None)
 
-    def test_getEdited_notString(self,ds):
+    def test_getEdited_notString(self):
         input = 2
         self.assertEqual(self.ds.getEdited(input),None)
 
-    def test_getEdited_blank(self,ds):
+    def test_getEdited_blank(self):
         input = ''
         self.assertEqual(self.ds.getEdited(input),None)
 
-    def test_getEdited_multinput(self,ds):
+    def test_getEdited_multinput(self):
         input = list(1,2)
         self.assertEqual(self.ds.getEdited(input),None)
 

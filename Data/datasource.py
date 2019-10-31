@@ -174,10 +174,10 @@ def main():
 	#results = ds.getControversial(connection)
 	#results = ds.getScoreInRange(connection,2,10)
 
-	if results is not None:
-		print('results')
-		for item in results:
-			print(item)
+	#if results is not None:
+		#print('results')
+		#for item in results:
+			#print(item)
 	connection.close()
 
 main()

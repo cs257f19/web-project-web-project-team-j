@@ -3,7 +3,7 @@ import getpass
 
 class DataSource:
 
-	def init(self):
+	def __init__(self):
 		self.connection = None
 
 	def connector(self,user, password):

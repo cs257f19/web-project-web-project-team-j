@@ -4,7 +4,7 @@ import getpass
 class DataSource:
 
 	def init(self):
-		pass
+		self.connection = None
 
 	def connector(self,user, password):
 		'''
@@ -179,5 +179,5 @@ def main():
 		#for item in results:
 			#print(item)
 	connection.close()
-
-main()
+if __name__ == "__main__":
+	main()

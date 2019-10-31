@@ -21,7 +21,7 @@ class DataSource:
 		except Exception as e:
 			print('Connection Error',e)
 			exit()
-		return connection
+		return self.connection
 
 	def getScoreAbove(self,score):
 		'''

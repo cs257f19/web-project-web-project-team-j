@@ -29,7 +29,8 @@ def itDoesHTML():
         '  <p>Please refrain from feeding the squirrels. &lt;test this&gt; </p>' + \
         '</body>' + \
         '</html>'
-    return htmlStr
+    while True:
+    	return htmlStr
 
 @app.route('/boring/')
 def boring():

@@ -1,7 +1,5 @@
 
-import csv
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import requests
 import datasource
 
 analyser = SentimentIntensityAnalyzer()
@@ -16,3 +14,8 @@ cursor = db.connection.cursor()
 query = "SELECT * FROM mydata"
 cursor.execute(query)
 results = cursor.fetchall()
+
+for result in results:
+    comment = result[6]
+    print(comment)
+    print(sentiment_analyzer_scores(comment))

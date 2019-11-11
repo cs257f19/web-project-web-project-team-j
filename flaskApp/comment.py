@@ -145,7 +145,7 @@ class Comment():
         Parameters:
             time - the time a comment was created
         '''
-        self.created_UTC = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time)
+        self.created_UTC = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time))
 
 
     def getSentiment(self):

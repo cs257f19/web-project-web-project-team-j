@@ -49,6 +49,8 @@ def get_results():
             queryResult = ds.getScoreBelow(scoreHigh)
             comments.append(queryResult)
 
+        print(len(comments))
+
     return render_template('resultsTemplate.html', comments=comments)
 
 @app.route('/', methods = ['GET', 'POST'])

@@ -1,4 +1,5 @@
 
+import time
 
 class Comment():
 
@@ -16,11 +17,8 @@ class Comment():
         self.ID = ""
         self.guilded = 0
         self.parent_ID = ""
-        self.created_UTC = 0
+        self.created_UTC = ""
         self.sentiment = 0
-
-    def __str__(self):
-        return str(self.score)
 
     def getAuthor(self):
         '''
@@ -142,12 +140,12 @@ class Comment():
 
     def setTimeCreated(self, time):
         '''
-        sets the guilded status of a comment
+        sets the time of creation (converted from UTC to local time)
 
         Parameters:
             time - the time a comment was created
         '''
-        self.created_UTC = time
+        self.created_UTC = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time)
 
 
     def getSentiment(self):
@@ -159,7 +157,7 @@ class Comment():
         '''
         return self.sentiment
 
-    def setTimeCreated(self, sentimentScore):
+    def setSentiment(self, sentimentScore):
         '''
         sets the sentiment score of a comment
 

@@ -2,7 +2,7 @@
 
 class Comment():
 
-    def __init__ :
+    def __init__(self):
         self.subreddit = ""
         self.subreddit_ID = ""
         self.author = ""

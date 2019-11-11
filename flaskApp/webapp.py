@@ -26,12 +26,12 @@ def form_post():
         print(request)
         #get keywords, other comment specs from submitted form
         try:
-            keywords = request.form['keywords']
-            edited = request.form['edited']
-            gilded = request.form['gilded']
-            controversial = request.form['controversial']
-            goodSentiment = request.form['goodSentiment']
-            badSentiment = request.form['badSentiment']
+            #keywords = request.form['keywords']
+            #edited = request.form['edited']
+            #gilded = request.form['gilded']
+            #controversial = request.form['controversial']
+            #goodSentiment = request.form['goodSentiment']
+            #badSentiment = request.form['badSentiment']
             scoreLow = request.form['scoreLow']
             scoreHigh = request.form['scoreHigh']
 

@@ -145,6 +145,7 @@ class Comment():
         Parameters:
             time - the time a comment was created
         '''
+        time = str(time)
         self.created_UTC = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time))
 
 

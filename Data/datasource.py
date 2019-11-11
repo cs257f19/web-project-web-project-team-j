@@ -58,7 +58,7 @@ class DataSource:
 				comment.setTimeCreated(result[13])
 
 
-				comments.append(comments)
+				comments.append(comment)
 
 			#return list of comment objects
 			return comments
@@ -101,7 +101,7 @@ class DataSource:
 				comment.setTimeCreated(result[13])
 
 
-				comments.append(comments)
+				comments.append(comment)
 
 			#return list of comment objects
 			return comments
@@ -145,7 +145,7 @@ class DataSource:
 				comment.setTimeCreated(result[13])
 
 
-				comments.append(comments)
+				comments.append(comment)
 
 			#return list of comment objects
 			return comments
@@ -178,7 +178,7 @@ class DataSource:
 				comment.setTimeCreated(result[13])
 
 
-				comments.append(comments)
+				comments.append(comment)
 
 			#return list of comment objects
 			return comments
@@ -220,7 +220,7 @@ class DataSource:
 				comment.setTimeCreated(result[13])
 
 
-				comments.append(comments)
+				comments.append(comment)
 
 			#return list of comment objects
 			return comments
@@ -287,7 +287,7 @@ class DataSource:
 				comment.setTimeCreated(result[13])
 
 
-				comments.append(comments)
+				comments.append(comment)
 
 			#return list of comment objects
 			return comments
@@ -315,7 +315,7 @@ class DataSource:
 				comment.setTimeCreated(result[13])
 
 
-				comments.append(comments)
+				comments.append(comment)
 
 			#return list of comment objects
 			return comments

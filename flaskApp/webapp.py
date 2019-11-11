@@ -49,7 +49,7 @@ def get_results():
             queryResult = ds.getScoreBelow(scoreHigh)
             comments.append(queryResult)
 
-        print(len(comments))
+        print(comments)
 
     return render_template('resultsTemplate.html', comments=comments)
 

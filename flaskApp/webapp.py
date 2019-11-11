@@ -9,13 +9,14 @@
 '''
 import flask
 from flask import render_template
+import requests
 import json
 import sys
 import datasource
 
 app = flask.Flask(__name__)
 
-@app.route('/', methods = ['GET','POST'])
+@app.route('/home.html', methods = ['GET','POST'])
 def home():
     comments = []
     errors = []

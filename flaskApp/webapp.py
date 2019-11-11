@@ -8,16 +8,15 @@
     "hello world" app found at http://flask.pocoo.org/.
 '''
 import flask
-from flask import render_template
-import requests
+from flask import render_template, request
 import json
 import sys
 import datasource
 
 app = flask.Flask(__name__)
 
-@app.route('/home.html', methods = ['GET','POST'])
-def home():
+@app.route('/', methods = ['POST'])
+def form_post():
     comments = []
     errors = []
 
@@ -47,7 +46,9 @@ def home():
 
     return render_template('resultsTemplate.html', comments=comments)
 
-
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:

@@ -15,7 +15,7 @@ import datasource
 
 app = flask.Flask(__name__)
 
-@app.route('/', methods = ['POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def form_post():
     comments = []
     errors = []
@@ -23,15 +23,20 @@ def form_post():
     ds = datasource.DataSource()
 
     if request.method == "POST":
+        print(request)
         #get keywords, other comment specs from submitted form
-        keywords = request.form['keywords']
-        edited = request.form['edited']
-        gilded = request.form['gilded']
-        controversial = request.form['controversial']
-        goodSentiment = request.form['goodSentiment']
-        badSentiment = request.form['badSentiment']
-        scoreLow = request.form['scoreLow']
-        scoreHigh = request.form['scoreHigh']
+        try:
+            keywords = request.form['keywords']
+            edited = request.form['edited']
+            gilded = request.form['gilded']
+            controversial = request.form['controversial']
+            goodSentiment = request.form['goodSentiment']
+            badSentiment = request.form['badSentiment']
+            scoreLow = request.form['scoreLow']
+            scoreHigh = request.form['scoreHigh']
+
+        except:
+            pass
 
         #return proper results based on score params
         if scoreLow and scoreHigh:

@@ -1,6 +1,6 @@
 import psycopg2
 import getpass
-import comment
+from comment import *
 
 class DataSource:
 

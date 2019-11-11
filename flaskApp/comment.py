@@ -19,6 +19,9 @@ class Comment():
         self.created_UTC = 0
         self.sentiment = 0
 
+    def __str__(self):
+        return str(self.score)
+
     def getAuthor(self):
         '''
         Retrieves the author of a comment

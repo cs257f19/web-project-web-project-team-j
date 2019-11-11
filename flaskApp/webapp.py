@@ -22,7 +22,7 @@ def form_post():
 
     ds = datasource.DataSource()
 
-    if requests.method == "POST":
+    if request.method == "POST":
         #get keywords, other comment specs from submitted form
         keywords = request.form['keywords']
         edited = request.form['edited']

@@ -319,7 +319,7 @@ class DataSource:
 
 			#return list of comment objects
 			return comments
-
+			
 		else:
 			print("Uh oh, something went wrong")
 			return None

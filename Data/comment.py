@@ -17,6 +17,7 @@ class Comment():
         self.guilded = 0
         self.parent_ID = ""
         self.created_UTC = 0
+        self.sentiment = 0
 
     def getAuthor(self):
         '''
@@ -144,3 +145,22 @@ class Comment():
             time - the time a comment was created
         '''
         self.created_UTC = time
+
+
+    def getSentiment(self):
+        '''
+        Retrieves the sentiment score (-1,1) of a comment
+
+		Returns:
+			The sentiment score of a comment (float)
+        '''
+        return self.sentiment
+
+    def setTimeCreated(self, sentimentScore):
+        '''
+        sets the sentiment score of a comment
+
+        Parameters:
+            sentimentScore - sentiment score of a comment (from -1 to 1)
+        '''
+        self.sentiment = sentimentScore

@@ -1,12 +1,12 @@
 
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+#from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import datasource
 
-analyser = SentimentIntensityAnalyzer()
+#analyser = SentimentIntensityAnalyzer()
 
 def sentiment_analyzer_scores(sentence):
-    score = analyser.polarity_scores(sentence)
-    print("{:-<40} {}".format(sentence, str(score)))
+    #score = analyser.polarity_scores(sentence)
+    #print("{:-<40} {}".format(sentence, str(score)))
 
 
 db = ds()
@@ -14,8 +14,10 @@ cursor = db.connection.cursor()
 query = "SELECT * FROM mydata"
 cursor.execute(query)
 results = cursor.fetchall()
+comments = []
 
-for result in results:
-    comment = result[6]
-    print(comment)
-    print(sentiment_analyzer_scores(comment))
+with open('comments.txt', 'w') as f:
+    for result in results:
+        comment = result[6]
+        f.write(comment + '\n')
+f.close()

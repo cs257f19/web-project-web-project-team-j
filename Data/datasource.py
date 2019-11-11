@@ -1,5 +1,6 @@
 import psycopg2
 import getpass
+import comment
 
 class DataSource:
 
@@ -38,7 +39,30 @@ class DataSource:
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE score > " + str(score) + "ORDER BY score DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			results = cursor.fetchall()
+
+			# construct comment objects from the query
+			comments = []
+			for result in results:
+				#instantiate new comment object
+				comment = Comment()
+
+				# set fields of comment object
+				comment.setAuthor(result[2])
+				comment.setScore(result[3])
+				comment.setBody(result[6])
+				comment.setBody(result[6])
+				comment.setControversiality(result[7])
+				comment.setEdited(result[9])
+				comment.setGuilded(result[11])
+				comment.setTimeCreated(result[13])
+
+
+				comments.append(comments)
+
+			#return list of comment objects
+			return comments
+
 		except Exception as e:
 			print("Uh oh, something went wrong",e)
 			return None
@@ -58,7 +82,30 @@ class DataSource:
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE score < " + str(score) + "ORDER BY score DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			results = cursor.fetchall()
+
+			# construct comment objects from the query
+			comments = []
+			for result in results:
+				#instantiate new comment object
+				comment = Comment()
+
+				# set fields of comment object
+				comment.setAuthor(result[2])
+				comment.setScore(result[3])
+				comment.setBody(result[6])
+				comment.setBody(result[6])
+				comment.setControversiality(result[7])
+				comment.setEdited(result[9])
+				comment.setGuilded(result[11])
+				comment.setTimeCreated(result[13])
+
+
+				comments.append(comments)
+
+			#return list of comment objects
+			return comments
+
 		except Exception as e:
 			print("Uh oh, something went wrong",e)
 			return None
@@ -79,7 +126,30 @@ class DataSource:
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE score BETWEEN " + str(start) + " AND " + str(end)
 			cursor.execute(query)
-			return cursor.fetchall()
+			results = cursor.fetchall()
+
+			# construct comment objects from the query
+			comments = []
+			for result in results:
+				#instantiate new comment object
+				comment = Comment()
+
+				# set fields of comment object
+				comment.setAuthor(result[2])
+				comment.setScore(result[3])
+				comment.setBody(result[6])
+				comment.setBody(result[6])
+				comment.setControversiality(result[7])
+				comment.setEdited(result[9])
+				comment.setGuilded(result[11])
+				comment.setTimeCreated(result[13])
+
+
+				comments.append(comments)
+
+			#return list of comment objects
+			return comments
+
 		except Exception as e:
 			print("Uh oh, something went wrong",e)
 			return None
@@ -89,7 +159,30 @@ class DataSource:
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE gilded=1"
 			cursor.execute(query)
-			return cursor.fetchall()
+			results = cursor.fetchall()
+
+			# construct comment objects from the query
+			comments = []
+			for result in results:
+				#instantiate new comment object
+				comment = Comment()
+
+				# set fields of comment object
+				comment.setAuthor(result[2])
+				comment.setScore(result[3])
+				comment.setBody(result[6])
+				comment.setBody(result[6])
+				comment.setControversiality(result[7])
+				comment.setEdited(result[9])
+				comment.setGuilded(result[11])
+				comment.setTimeCreated(result[13])
+
+
+				comments.append(comments)
+
+			#return list of comment objects
+			return comments
+
 		except Exception as e:
 			raise e
 			return None
@@ -108,7 +201,30 @@ class DataSource:
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE controversiality=1"
 			cursor.execute(query)
-			return cursor.fetchall()
+			results = cursor.fetchall()
+
+			# construct comment objects from the query
+			comments = []
+			for result in results:
+				#instantiate new comment object
+				comment = Comment()
+
+				# set fields of comment object
+				comment.setAuthor(result[2])
+				comment.setScore(result[3])
+				comment.setBody(result[6])
+				comment.setBody(result[6])
+				comment.setControversiality(result[7])
+				comment.setEdited(result[9])
+				comment.setGuilded(result[11])
+				comment.setTimeCreated(result[13])
+
+
+				comments.append(comments)
+
+			#return list of comment objects
+			return comments
+
 		except Exception as e:
 			print("Uh oh, something went wrong",e)
 			return None
@@ -152,12 +268,58 @@ class DataSource:
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE edited='TRUE'"
 			cursor.execute(query)
-			return cursor.fetchall()
+			results = cursor.fetchall()
+
+			# construct comment objects from the query
+			comments = []
+			for result in results:
+				#instantiate new comment object
+				comment = Comment()
+
+				# set fields of comment object
+				comment.setAuthor(result[2])
+				comment.setScore(result[3])
+				comment.setBody(result[6])
+				comment.setBody(result[6])
+				comment.setControversiality(result[7])
+				comment.setEdited(result[9])
+				comment.setGuilded(result[11])
+				comment.setTimeCreated(result[13])
+
+
+				comments.append(comments)
+
+			#return list of comment objects
+			return comments
+
 		elif input == 'FALSE':
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE edited='FALSE'"
 			cursor.execute(query)
-			return cursor.fetchall()
+			results = cursor.fetchall()
+
+			# construct comment objects from the query
+			comments = []
+			for result in results:
+				#instantiate new comment object
+				comment = Comment()
+
+				# set fields of comment object
+				comment.setAuthor(result[2])
+				comment.setScore(result[3])
+				comment.setBody(result[6])
+				comment.setBody(result[6])
+				comment.setControversiality(result[7])
+				comment.setEdited(result[9])
+				comment.setGuilded(result[11])
+				comment.setTimeCreated(result[13])
+
+
+				comments.append(comments)
+
+			#return list of comment objects
+			return comments
+			
 		else:
 			print("Uh oh, something went wrong")
 			return None

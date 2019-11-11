@@ -334,7 +334,7 @@ def main():
 
 	connection = ds.connector(user,password)
 	#results = ds.getControversial(connection)
-	#results = ds.getScoreInRange(connection,2,10)
+	results = ds.getScoreInRange(connection,2,10)
 
 	#if results is not None:
 		#print('results')

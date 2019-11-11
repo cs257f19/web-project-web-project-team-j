@@ -51,7 +51,7 @@ def get_results():
 
     return render_template('resultsTemplate.html', comments=comments)
 
-@app.route('/home.html', methods = ['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def home():
     if method == 'POST':
         return redirect(url_for('results'))

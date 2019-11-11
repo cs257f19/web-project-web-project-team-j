@@ -15,7 +15,7 @@ import datasource
 
 app = flask.Flask(__name__)
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/results', methods = ['GET', 'POST'])
 def form_post():
     comments = []
     errors = []

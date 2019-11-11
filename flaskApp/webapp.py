@@ -51,9 +51,12 @@ def get_results():
 
     return render_template('resultsTemplate.html', comments=comments)
 
-@app.route('/')
+@app.route('/home.html', methods = ['GET', 'POST'])
 def home():
-    return render_template('Home.html')
+    if method == 'POST':
+        return redirect(url_for('results'))
+    else:
+        return render_template('Home.html')
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:

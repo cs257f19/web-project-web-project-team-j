@@ -1,0 +1,116 @@
+body{
+  opacity: 1.0;
+  background-blend-mode: luminosity;
+  text-decoration:none;
+
+}
+h1  {
+  text-align: center;
+  opacity: 0.9;
+  font-weight: bold;
+}
+
+h2  {
+  text-align: center;
+  font-family:Open Sans;
+  opacity: 0.9;
+  font-weight: bold;
+  width: 80%;
+}
+
+p {
+  text-align: center;
+  width: 80%;
+}
+
+.navbar-brand{
+  font-family: Raleway;
+  font-weight:bold;
+  color: #F1702D !important;
+  font-size: 36px;
+  margin-right:40px;
+}
+
+.navbar-brand small {
+  font-family: Open Sans;
+  color:white;
+  display:block;
+  font-size:12px;
+}
+
+.navbar-toggle {top:10px}
+
+@media (min-width:768px) {
+
+  .navbar-brand {
+    padding-top:20px;
+  }
+  .nav.navbar-nav {
+    padding-left:30px;
+  }
+  .nav.navbar-nav a{
+    font-size:48px;
+    font-weight:bold;
+    padding-top:30px;
+    padding-bottom:30px;
+  }
+
+}
+
+.search-container{
+  margin: 0 auto;
+  width:60%;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+.btn-primary.btn-outline {
+    color: #f57c00;
+}
+.btn-primary.btn-outline:hover{
+    color: #fff;
+}
+
+.card{
+}
+.card-header{
+  text-align-last:justify;
+  font-size:20px;
+}
+
+.icons{
+      font-size:20px;
+      margin-left: auto;
+}
+
+#score{
+  display: inline-block;
+  padding-left: 10px;
+}
+#sentiment{
+  display: inline-block;
+
+
+}
+#comment{
+	text-align:left;
+	padding-left:30px;
+}
+
+#link{
+  margin-left: auto;
+}
+
+.reddit-link{
+  margin-left: auto;
+}
+
+
+embed {
+  text-align: center;
+  width: 100%;
+  height: 75vw;
+}

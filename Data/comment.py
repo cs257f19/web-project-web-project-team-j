@@ -138,15 +138,14 @@ class Comment():
         '''
         return self.created_UTC
 
-    def setTimeCreated(self, time):
+    def setTimeCreated(self, UTCtime):
         '''
         sets the time of creation (converted from UTC to local time)
 
         Parameters:
             time - the time a comment was created
         '''
-        time = str(time)
-        self.created_UTC = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time))
+        self.created_UTC = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(UTCtime))
 
 
     def getSentiment(self):

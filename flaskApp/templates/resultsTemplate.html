@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.cm/css?family=Raleway&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/858dd3015d.js" crossorigin="anonymous"></script>
-  <link href="/stylesheets/ResultsStyle.css" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static', filename='ResultsStyle.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -126,7 +126,6 @@
     <li class="list-group-item">{{comment.created_UTC}}</li>
   </ul>
   </div>
-  <br>
   <br>
   <br>
   {%endfor%}

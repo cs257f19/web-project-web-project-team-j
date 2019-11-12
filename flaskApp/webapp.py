@@ -1,8 +1,11 @@
 '''
-    flask app for Reddimentary
-    CS257
-    Web Team J:
-        @hansonc2, @craigj2, @sayanic
+########################################
+#    Flask app for Reddimentary        #
+#    CS257                             #
+#    Web Team J:                       #
+#        @hansonc2, @craigj2, @sayanic #
+#                                      #
+########################################
 '''
 import flask
 from flask import render_template, request

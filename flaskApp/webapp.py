@@ -65,7 +65,7 @@ def homepage():
         return render_template('Home.html')
 
 @app.route('/about.html', methods = ['GET'])
-def homepage():
+def about():
         return render_template('About.html')
 
 

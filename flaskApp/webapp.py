@@ -1,11 +1,8 @@
-#!/usr/bin/env python3
 '''
-    example_flask_app.py
-    Jeff Ondich, 22 April 2016
-    Modified by Eric Alexander, January 2017
-
-    A slightly more complicated Flask sample app than the
-    "hello world" app found at http://flask.pocoo.org/.
+    flask app for Reddimentary
+    CS257
+    Web Team J:
+        @hansonc2, @craigj2, @sayanic
 '''
 import flask
 from flask import render_template, request
@@ -17,14 +14,19 @@ app = flask.Flask(__name__)
 
 @app.route('/results', methods = ['GET', 'POST'])
 def get_results():
+    '''
+    Gets fields of submitted query and calls DB API with the query params.
+
+    Returns:
+        -results.html page formatted with comments
+    '''
     comments = []
     errors = []
-
     ds = datasource.DataSource()
 
     if request.method == "POST":
-        print(request)
         #get keywords, other comment specs from submitted form
+        # **CURRENTLY SUPPORTS SCORE QUERIES ONLY**
         try:
             #keywords = request.form['keywords']
             #edited = request.form['edited']
@@ -34,7 +36,6 @@ def get_results():
             #badSentiment = request.form['badSentiment']
             scoreLow = request.form['scoreLow']
             scoreHigh = request.form['scoreHigh']
-
         except:
             pass
 
@@ -49,26 +50,38 @@ def get_results():
             queryResult = ds.getScoreBelow(scoreHigh)
             comments.append(queryResult)
 
-        print(comments)
-
     return render_template('resultsTemplate.html', comments=comments)
 
 @app.route('/', methods = ['GET', 'POST'])
 def root():
+    '''
+    Returns home.html or redirects user to /results based on HTTP request
+
+    Returns:
+        -html page
+    '''
+    #redirect to /results if user submits a query
     if request.method == 'POST':
         return redirect(url_for('results'))
+    #else display homepage
     else:
         return render_template('Home.html')
 
+
 @app.route('/home.html', methods = ['GET'])
 def homepage():
+        '''
+        Returns home.html when requested
+        '''
         return render_template('Home.html')
+
 
 @app.route('/about.html', methods = ['GET'])
 def about():
+        '''
+        Returns about.html when requested
+        '''
         return render_template('About.html')
-
-
 
 
 if __name__ == '__main__':

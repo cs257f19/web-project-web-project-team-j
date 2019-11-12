@@ -51,12 +51,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -94,12 +92,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -138,12 +134,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -171,12 +165,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -213,12 +205,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -264,6 +254,15 @@ class DataSource:
 		pass
 
 	def getEdited(self,input):
+		'''
+		Retrieves all edited comments
+
+		Param:
+			Input - flag for edit status of comments (TRUE/FALSE)
+
+		Returns:
+			A list all edited comment objects
+		'''
 		if input == 'TRUE':
 			cursor = self.connection.cursor()
 			query = "SELECT * FROM mydata WHERE edited='TRUE'"
@@ -280,12 +279,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -308,12 +305,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 

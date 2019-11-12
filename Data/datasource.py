@@ -51,12 +51,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -94,12 +92,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -138,12 +134,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -171,12 +165,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -213,12 +205,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -280,12 +270,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -308,12 +296,10 @@ class DataSource:
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
 				comment.setBody(result[6])
-				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
 				comment.setGuilded(result[11])
 				comment.setTimeCreated(result[13])
-
 
 				comments.append(comment)
 
@@ -334,7 +320,7 @@ def main():
 
 	connection = ds.connector(user,password)
 	#results = ds.getControversial(connection)
-	results = ds.getScoreInRange(connection,2,10)
+	#results = ds.getScoreInRange(connection,2,10)
 
 	#if results is not None:
 		#print('results')

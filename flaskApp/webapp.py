@@ -54,11 +54,22 @@ def get_results():
     return render_template('resultsTemplate.html', comments=comments)
 
 @app.route('/', methods = ['GET', 'POST'])
-def home():
+def root():
     if request.method == 'POST':
         return redirect(url_for('results'))
     else:
         return render_template('Home.html')
+
+@app.route('/home.html', methods = ['GET'])
+def homepage():
+        return render_template('Home.html')
+
+@app.route('/about.html', methods = ['GET'])
+def homepage():
+        return render_template('About.html')
+
+
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:

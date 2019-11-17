@@ -105,11 +105,21 @@
         u/{{comment.author}}
         <div class="icons float-right">
           <span class="border border-warning rounded" id = "score">
+            {%if {comment.score} > 0%}
   		      <i class="fas fa-arrow-alt-circle-up"></i>
+            {%endif%}
+            {%if {comment.score} > 0%}
+  		      <i class="fas fa-arrow-alt-circle-down"></i>
+            {%endif%}
   		      <span>{{comment.score}}</span>
           </span>
   	      <span class="border border-success rounded" id = "sentiment">
+              {% if {comment.sentiment} > 0 %}
   		        <i class="far fa-smile"></i>
+              {%endif%}
+              {% if {comment.sentiment} < 0 %}
+  		        <i class="far fa-frown"></i>
+              {%endif%}
   		        <span>{{comment.sentiment}}</span>
           </span>
         </div>

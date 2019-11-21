@@ -67,7 +67,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
-            editedBool = True
+             editedBool = True
             #filterEdited(comments)
         except:
             pass
@@ -119,7 +119,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
-            badSentBool = True
+             badSentBool = True
             #filterForBadSentiment(comments)
         except:
             pass

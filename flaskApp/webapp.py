@@ -55,9 +55,16 @@ def get_results():
 
         try:
              edited = request.form['edited']
+             queryResult = ds.getEdited("TRUE")
+             for comment in queryResult:
+                 if comment in comments:
+                     pass
+                 else:
+                     comments.append(comment)
+            #filterEdited(comments)
         except:
             pass
-
+'''
         if edited:
             queryResult = ds.getEdited("TRUE")
             for comment in queryResult:
@@ -72,6 +79,7 @@ def get_results():
                     pass
                 else:
                     comments.append(comment)
+'''
 
         try:
              gilded = request.form['gilded']
@@ -81,6 +89,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
+            #filterGilded(comments)
         except:
             pass
 
@@ -93,6 +102,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
+            #filterControversial(comments)
         except:
             pass
 
@@ -105,6 +115,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
+            #filterForGoodSentiment(comments)
         except:
             pass
 
@@ -116,6 +127,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
+            #filterForBadSentiment(comments)
         except:
             pass
 
@@ -124,7 +136,47 @@ def get_results():
         except:
             pass
 
+        if gilded:
+            filterGilded(comments)
+
+        if badSentiment:
+            filterForBadSentiment(comments)
+
+        if goodSentiment:
+            filterForGoodSentiment(comments)
+
+        if controversial:
+            filterControversial(comments)
+
+        if edited:
+            filterEdited(comments)
+
     return render_template('resultsTemplate.html', comments=comments)
+
+def filterForBadSentiment(list):
+    for entry in list:
+        if entry.getSentiment() > 0:
+            list.remove(entry)
+
+def filterForGoodSentiment(list):
+    for entry in list:
+        if entry.getSentiment() < 0:
+            list.remove(entry)
+
+def filterGilded(list):
+    for entry in list:
+        if entry.getGuilded() != 1:
+            list.remove(entry)
+
+def filterEdited(list):
+    for entry in list:
+        if entry.getEdited() != 'TRUE':
+            list.remove(entry)
+
+def filterControversial(list):
+    for entry in list:
+        if entry.getControversial() != 1:
+            list.remove(entry)
 
 @app.route('/', methods = ['GET', 'POST'])
 def root():

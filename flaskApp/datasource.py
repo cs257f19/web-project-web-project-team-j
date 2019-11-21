@@ -260,7 +260,6 @@ class DataSource:
 				comments.append(comment)
 
 			#return list of comment objects
-			print(comments)
 			return comments
 
 		except Exception as e:

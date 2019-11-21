@@ -153,7 +153,7 @@ def get_results():
             filterEdited(comments)
 
         if keywordBool:
-            filterEdited(comments, keywords)
+            filterForKeywords(comments, keywords)
 
     return render_template('resultsTemplate.html', comments=comments)
 

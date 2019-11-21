@@ -31,27 +31,98 @@ def get_results():
         #get keywords, other comment specs from submitted form
         # **CURRENTLY SUPPORTS SCORE QUERIES ONLY**
         try:
-            #keywords = request.form['keywords']
-            #edited = request.form['edited']
-            #gilded = request.form['gilded']
-            #controversial = request.form['controversial']
-            #goodSentiment = request.form['goodSentiment']
-            #badSentiment = request.form['badSentiment']
             scoreLow = request.form['scoreLow']
+        except:
+            pass
+
+        try:
             scoreHigh = request.form['scoreHigh']
         except:
             pass
 
-        #return proper results based on score params
         if scoreLow and scoreHigh:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
-            comments.append(queryResult)
+            for x in queryResult:
+                comments.append(x)
         elif scoreLow and not scoreHigh:
             queryResult = ds.getScoreAbove(scoreLow)
-            comments.append(queryResult)
+            for x in queryResult:
+                comments.append(x)
         elif scoreHigh and not scoreLow:
             queryResult = ds.getScoreBelow(scoreHigh)
-            comments.append(queryResult)
+            for x in queryResult:
+                comments.append(x)
+
+        try:
+             edited = request.form['edited']
+        except:
+            pass
+
+        if edited:
+            queryResult = ds.getEdited("TRUE")
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+        else:
+            queryResult = ds.getEdited("FALSE")
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+
+        try:
+             gilded = request.form['gilded']
+             queryResult = ds.getGuilded()
+             for comment in queryResult:
+                 if comment in comments:
+                     pass
+                 else:
+                     comments.append(comment)
+        except:
+            pass
+
+
+        try:
+             controversial = request.form['controversial']
+             queryResult = ds.getControversial()
+             for comment in queryResult:
+                 if comment in comments:
+                     pass
+                 else:
+                     comments.append(comment)
+        except:
+            pass
+
+
+        try:
+             goodSentiment = request.form['goodSentiment']
+             queryResult = ds.getSentimentGood()
+             for comment in queryResult:
+                 if comment in comments:
+                     pass
+                 else:
+                     comments.append(comment)
+        except:
+            pass
+
+        try:
+             badSentiment = request.form['badSentiment']
+             queryResult = ds.getSentimentBad()
+             for comment in queryResult:
+                 if comment in comments:
+                     pass
+                 else:
+                     comments.append(comment)
+        except:
+            pass
+
+        try:
+             keywords = request.form['keywords']
+        except:
+            pass
 
     return render_template('resultsTemplate.html', comments=comments)
 

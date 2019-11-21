@@ -154,6 +154,7 @@ def get_results():
 
         if keywordBool:
             filterForKeywords(comments, keywords)
+            print('Error in Keyword Bool')
 
     return render_template('resultsTemplate.html', comments=comments)
 
@@ -186,6 +187,7 @@ def filterControversial(list):
 def filterForKeywords(list, keywords):
     for entry in list:
         if keywords not in entry.getBody():
+            print('removed entry')
             list.remove(entry)
 
 @app.route('/', methods = ['GET', 'POST'])

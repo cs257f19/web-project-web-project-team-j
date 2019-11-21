@@ -32,6 +32,7 @@ def get_results():
     badSentBool = False
     goodSentBool = False
     gildedBool = False
+    keywordBool = False
 
     if request.method == "POST":
         #get keywords, other comment specs from submitted form
@@ -126,6 +127,13 @@ def get_results():
 
         try:
              keywords = request.form['keywords']
+             queryResult = ds.KeywordSearch(keywords)
+             for comment in queryResult:
+                 if comment in comments:
+                     pass
+                 else:
+                     comments.append(comment)
+             keywordBool = True
         except:
             pass
 
@@ -143,6 +151,9 @@ def get_results():
 
         if editedBool:
             filterEdited(comments)
+
+        if keywordBool:
+            filterEdited(comments, keywords)
 
     return render_template('resultsTemplate.html', comments=comments)
 
@@ -169,6 +180,12 @@ def filterEdited(list):
 def filterControversial(list):
     for entry in list:
         if entry.getControversial() != 1:
+            list.remove(entry)
+
+
+def filterForKeywords(list, keywords):
+    for entry in list:
+        if keywords not in entry.getBody():
             list.remove(entry)
 
 @app.route('/', methods = ['GET', 'POST'])

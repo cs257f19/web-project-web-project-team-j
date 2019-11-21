@@ -224,7 +224,7 @@ class DataSource:
 			print("Uh oh, something went wrong",e)
 			return None
 
-	def KeywordSearch(self):
+	def KeywordSearch(self,keyword):
 		'''
 		Retrieves all comments with a comment body that contains the specified keyword
 
@@ -235,7 +235,33 @@ class DataSource:
 		Returns:
 			A collection of all comments that contain the keyword
 		'''
-		pass
+		try:
+            cursor = self.connection.cursor()
+            query = "SELECT * FROM mydata WHERE body LIKE" + str(keyword)
+            cursor.execute(query)
+            results = cursor.fetchall()
+            # construct comment objects from the query
+            comments = []
+            for result in results:
+                #instantiate new comment object
+                comment = Comment()
+                # set fields of comment object
+                comment.setAuthor(result[2])
+                comment.setScore(result[3])
+                comment.setBody(result[6])
+                comment.setControversiality(result[7])
+                comment.setEdited(result[9])
+                comment.setGuilded(result[11])
+                comment.setTimeCreated(result[13])
+				omment.setSentiment(result[14])
+                comments.append(comment)
+            #return list of comment objects
+            return comments
+        except Exception as e:
+            raise e
+            return None
+
+
 
 	def getSentimentGood(self):
 		'''

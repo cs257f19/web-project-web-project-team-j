@@ -118,19 +118,19 @@ def get_results():
         except:
             pass
 
-        if gilded:
+        if request.form['gilded']:
             filterGilded(comments)
 
-        if badSentiment:
+        if request.form['badSentiment']:
             filterForBadSentiment(comments)
 
-        if goodSentiment:
+        if request.form['goodSentiment']:
             filterForGoodSentiment(comments)
 
-        if controversial:
+        if request.form['controversial']:
             filterControversial(comments)
 
-        if edited:
+        if request.form['edited']:
             filterEdited(comments)
 
     return render_template('resultsTemplate.html', comments=comments)

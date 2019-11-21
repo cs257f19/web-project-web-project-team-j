@@ -237,7 +237,7 @@ class DataSource:
 		'''
 		try:
 			cursor = self.connection.cursor()
-			query = "SELECT * FROM mydata WHERE body LIKE" + str(keyword)
+			query = "SELECT * FROM mydata WHERE body LIKE" + "%" + str(keyword) + "%"
 			cursor.execute(query)
 			results = cursor.fetchall()
 

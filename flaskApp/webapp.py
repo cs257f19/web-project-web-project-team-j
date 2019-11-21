@@ -64,57 +64,39 @@ def get_results():
             #filterEdited(comments)
         except:
             pass
-'''
-        if edited:
-            queryResult = ds.getEdited("TRUE")
-            for comment in queryResult:
-                if comment in comments:
-                    pass
-                else:
-                    comments.append(comment)
-        else:
-            queryResult = ds.getEdited("FALSE")
-            for comment in queryResult:
-                if comment in comments:
-                    pass
-                else:
-                    comments.append(comment)
-'''
 
         try:
-             gilded = request.form['gilded']
-             queryResult = ds.getGuilded()
-             for comment in queryResult:
-                 if comment in comments:
-                     pass
-                 else:
-                     comments.append(comment)
-            #filterGilded(comments)
+            gilded = request.form['gilded']
+            queryResult = ds.getGuilded()
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
         except:
             pass
 
-
         try:
-             controversial = request.form['controversial']
-             queryResult = ds.getControversial()
-             for comment in queryResult:
-                 if comment in comments:
-                     pass
-                 else:
-                     comments.append(comment)
+            controversial = request.form['controversial']
+            queryResult = ds.getControversial()
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
             #filterControversial(comments)
         except:
             pass
 
 
         try:
-             goodSentiment = request.form['goodSentiment']
-             queryResult = ds.getSentimentGood()
-             for comment in queryResult:
-                 if comment in comments:
-                     pass
-                 else:
-                     comments.append(comment)
+            goodSentiment = request.form['goodSentiment']
+            queryResult = ds.getSentimentGood()
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
             #filterForGoodSentiment(comments)
         except:
             pass

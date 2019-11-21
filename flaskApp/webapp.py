@@ -187,7 +187,7 @@ def filterControversial(list):
 def filterForKeywords(list, keywords):
     for entry in list:
         if keywords not in entry.getBody():
-            print('removed entry')
+            print(entry)
             list.remove(entry)
 
 @app.route('/', methods = ['GET', 'POST'])

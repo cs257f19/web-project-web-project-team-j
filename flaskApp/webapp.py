@@ -27,6 +27,12 @@ def get_results():
     errors = []
     ds = datasource.DataSource()
 
+    editedBool = False
+    controvBool = False
+    badSentBool = False
+    goodSentBool = False
+    gildedBool = False
+
     if request.method == "POST":
         #get keywords, other comment specs from submitted form
         # **CURRENTLY SUPPORTS SCORE QUERIES ONLY**
@@ -61,6 +67,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
+            editedBool = True
             #filterEdited(comments)
         except:
             pass
@@ -73,6 +80,7 @@ def get_results():
                     pass
                 else:
                     comments.append(comment)
+            gildedBool = True
         except:
             pass
 
@@ -84,6 +92,7 @@ def get_results():
                     pass
                 else:
                     comments.append(comment)
+            controvBool = True
             #filterControversial(comments)
         except:
             pass
@@ -97,6 +106,7 @@ def get_results():
                     pass
                 else:
                     comments.append(comment)
+            goodSentBool = True
             #filterForGoodSentiment(comments)
         except:
             pass
@@ -109,6 +119,7 @@ def get_results():
                      pass
                  else:
                      comments.append(comment)
+            badSentBool = True
             #filterForBadSentiment(comments)
         except:
             pass
@@ -118,19 +129,19 @@ def get_results():
         except:
             pass
 
-        if request.form['gilded']:
+        if gildedBool:
             filterGilded(comments)
 
-        if request.form['badSentiment']:
+        if badSentBool:
             filterForBadSentiment(comments)
 
-        if request.form['goodSentiment']:
+        if goodSentBool:
             filterForGoodSentiment(comments)
 
-        if request.form['controversial']:
+        if controvBool:
             filterControversial(comments)
 
-        if request.form['edited']:
+        if editedBool:
             filterEdited(comments)
 
     return render_template('resultsTemplate.html', comments=comments)

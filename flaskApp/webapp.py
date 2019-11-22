@@ -14,6 +14,7 @@ import sys
 import datasource
 
 app = flask.Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/results', methods = ['GET', 'POST'])
 def get_results():
@@ -34,35 +35,12 @@ def get_results():
     goodSentBool = False
     gildedBool = False
     keywordBool = False
+    maxScoreBool = False
+    minScoreBool = False
 
     if request.method == 'POST':
 
         # get keywords, other comment specs from submitted form
-
-        try:
-            goodSentiment = request.form['goodSentiment']
-            queryResult = ds.getSentimentGood()
-            for comment in queryResult:
-                if comment in comments:
-                    pass
-                else:
-                    comments.append(comment)
-            goodSentBool = True
-        except:
-            pass
-
-        try:
-            badSentiment = request.form['badSentiment']
-            queryResult = ds.getSentimentBad()
-            for comment in queryResult:
-                if comment in comments:
-                    pass
-                else:
-                    comments.append(comment)
-            badSentBool = True
-        except:
-
-            pass
 
         try:
             keywords = request.form['keywords']
@@ -77,6 +55,38 @@ def get_results():
             pass
 
         try:
+            goodSentiment = request.form['goodSentiment']
+        except:
+            pass
+
+        try:
+            badSentiment = request.form['badSentiment']
+        except:
+            pass
+
+        if badSentiment and goodSentiment:
+            pass
+
+        elif badSentiment and not goodSentiment:
+            queryResult = ds.getSentimentBad()
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            badSentBool = True
+
+        elif goodSentiment and not badSentiment:
+            queryResult = ds.getSentimentGood()
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            goodSentBool = True
+
+
+        try:
             scoreLow = request.form['scoreLow']
         except:
             pass
@@ -89,15 +99,31 @@ def get_results():
         if scoreLow and scoreHigh:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
             for comment in queryResult:
-                comments.append(comment)
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+
+            maxScoreBool = True
+            minScoreBool = True
+
         elif scoreLow and not scoreHigh:
             queryResult = ds.getScoreAbove(scoreLow)
             for comment in queryResult:
-                comments.append(comment)
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            minScoreBool = True
+
         elif scoreHigh and not scoreLow:
             queryResult = ds.getScoreBelow(scoreHigh)
             for comment in queryResult:
-                comments.append(comment)
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            maxScoreBool = True
 
         try:
             edited = request.form['edited']
@@ -155,6 +181,15 @@ def get_results():
             filterForKeywords(comments, keywords)
             print ('Error in Keyword Bool')
 
+        if minScoreBool and maxScoreBool:
+            filterScore(comments, scoreLow, scoreHigh)
+
+        if minScoreBool and not maxScoreBool:
+            filterScore(comments, scoreLow)
+
+        if maxScoreBool and not minScoreBool:
+            filterScore(comments, -1000, scoreHigh)
+
     return render_template('resultsTemplate.html', comments=comments)
 
 def filterForBadSentiment(list):
@@ -182,6 +217,10 @@ def filterControversial(list):
         if entry.getControversial() != 1:
             list.remove(entry)
 
+def filterScore(list, scoreMin= -1000, scoreMax=2000):
+    for entry in list:
+        if (entry.getScore() > scoreMax) or (entry.getScore() < scoreMin):
+            list.remove(entry)
 
 def filterForKeywords(list, keywords):
     for entry in list:

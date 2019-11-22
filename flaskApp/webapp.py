@@ -90,8 +90,6 @@ def get_results():
             scoreLow = request.form['scoreLow']
             if scoreLow != "":
                 minScoreBool = True
-            print(scoreLow)
-            print(type(scoreLow))
         except:
             pass
 
@@ -99,8 +97,6 @@ def get_results():
             scoreHigh = request.form['scoreHigh']
             if scoreHigh != "":
                 minScoreBool = True
-            print(scoreHigh)
-            print(type(scoreHigh))
         except:
             pass
 
@@ -196,11 +192,13 @@ def get_results():
 def filterForBadSentiment(list):
     for entry in list:
         if entry.getSentiment() > 0:
+            print("removed bad sent")
             list.remove(entry)
 
 def filterForGoodSentiment(list):
     for entry in list:
         if entry.getSentiment() < 0:
+            print("removed good sent")
             list.remove(entry)
 
 def filterGilded(list):

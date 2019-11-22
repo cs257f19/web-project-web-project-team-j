@@ -84,14 +84,14 @@ def get_results():
 
         try:
             scoreLow = request.form['scoreLow']
-            if scoreLow != None:
+            if scoreLow is not None:
                 minScoreBool = True
         except:
             pass
 
         try:
             scoreHigh = request.form['scoreHigh']
-            if scoreLow != None:
+            if scoreLow is not None:
                 maxScoreBool = True
         except:
             pass

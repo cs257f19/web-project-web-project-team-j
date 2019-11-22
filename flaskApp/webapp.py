@@ -35,8 +35,8 @@ def get_results():
     goodSentBool = False
     gildedBool = False
     keywordBool = False
-    maxScoreBool = False
-    minScoreBool = False
+    maxScoreBool = True
+    minScoreBool = True
 
     if request.method == 'POST':
 
@@ -64,7 +64,6 @@ def get_results():
         if badSentBool and goodSentBool:
             badSentBool = False
             goodSentBool = False
-            pass
 
         elif badSentBool and not goodSentBool:
             queryResult = ds.getSentimentBad()
@@ -84,17 +83,13 @@ def get_results():
 
         try:
             scoreLow = request.form['scoreLow']
-            if scoreLow is not None:
-                minScoreBool = True
         except:
-            pass
+            maxScoreBool = False
 
         try:
             scoreHigh = request.form['scoreHigh']
-            if scoreLow is not None:
-                maxScoreBool = True
         except:
-            pass
+            maxScoreBool = False
 
         if minScoreBool and maxScoreBool:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
@@ -130,7 +125,6 @@ def get_results():
                     comments.append(comment)
             editedBool = True
         except:
-
             pass
 
         try:

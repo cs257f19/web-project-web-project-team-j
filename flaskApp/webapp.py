@@ -35,8 +35,8 @@ def get_results():
     goodSentBool = False
     gildedBool = False
     keywordBool = False
-    maxScoreBool = True
-    minScoreBool = True
+    maxScoreBool = False
+    minScoreBool = False
 
     if request.method == 'POST':
 
@@ -45,6 +45,11 @@ def get_results():
         try:
             keywords = request.form['keywords']
             queryResult = ds.KeywordSearch(keywords)
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
             keywordBool = True
         except:
             pass
@@ -83,13 +88,17 @@ def get_results():
 
         try:
             scoreLow = request.form['scoreLow']
+            print(scoreLow)
+            print(type(scoreLow))
         except:
-            maxScoreBool = False
+            pass
 
         try:
             scoreHigh = request.form['scoreHigh']
+            print(scoreHigh)
+            print(type(scoreHigh))
         except:
-            maxScoreBool = False
+            pass
 
         if minScoreBool and maxScoreBool:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)

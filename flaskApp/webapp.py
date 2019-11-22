@@ -45,11 +45,6 @@ def get_results():
         try:
             keywords = request.form['keywords']
             queryResult = ds.KeywordSearch(keywords)
-            for comment in queryResult:
-                if comment in comments:
-                    pass
-                else:
-                    comments.append(comment)
             keywordBool = True
         except:
             pass
@@ -100,6 +95,8 @@ def get_results():
             pass
 
         if minScoreBool and maxScoreBool:
+            print(minScoreBool)
+            print(maxScoreBool)
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
             for comment in queryResult:
                 if comment in comments:
@@ -177,7 +174,6 @@ def get_results():
 
         if keywordBool:
             filterForKeywords(comments, keywords)
-            print ('Error in Keyword Bool')
 
         if minScoreBool and maxScoreBool:
             filterScore(comments, scoreLow, scoreHigh)
@@ -224,7 +220,6 @@ def filterScore(list, scoreMin= -1000, scoreMax=2000):
 def filterForKeywords(list, keywords):
     for entry in list:
         if keywords.lower() not in (entry.getBody()).lower():
-            print(entry)
             list.remove(entry)
 
 @app.route('/', methods = ['GET', 'POST'])

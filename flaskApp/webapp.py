@@ -217,7 +217,7 @@ def filterControversial(list):
 
 def filterScore(list, scoreMin= -1000, scoreMax=2000):
     for entry in list:
-        if (entry.getScore() > scoreMax) or (entry.getScore() < scoreMin):
+        if (entry.getScore() > int(scoreMax)) or (entry.getScore() < int(scoreMin)):
             list.remove(entry)
 
 

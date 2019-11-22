@@ -160,6 +160,8 @@ def get_results():
         except:
             pass
 
+        print(comments)
+
         if gildedBool:
             filterGilded(comments)
 
@@ -192,7 +194,7 @@ def get_results():
 def filterForBadSentiment(list):
     for entry in list:
         if entry.getSentiment() > 0:
-            print("removed bad sent")
+            print("removed good sent")
             list.remove(entry)
 
 def filterForGoodSentiment(list):

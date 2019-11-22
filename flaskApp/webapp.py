@@ -88,6 +88,8 @@ def get_results():
 
         try:
             scoreLow = request.form['scoreLow']
+            if scoreLow != "":
+                minScoreBool = True
             print(scoreLow)
             print(type(scoreLow))
         except:
@@ -95,6 +97,8 @@ def get_results():
 
         try:
             scoreHigh = request.form['scoreHigh']
+            if scoreHigh != "":
+                minScoreBool = True
             print(scoreHigh)
             print(type(scoreHigh))
         except:

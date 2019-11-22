@@ -84,21 +84,19 @@ def get_results():
 
         try:
             scoreLow = request.form['scoreLow']
-            minScoreBool = True
+            if scoreLow != None:
+                minScoreBool = True
         except:
             pass
 
         try:
             scoreHigh = request.form['scoreHigh']
-            maxScoreBool = True
+            if scoreLow != None:
+                maxScoreBool = True
         except:
             pass
 
         if minScoreBool and maxScoreBool:
-            print(minScoreBool)
-            print(maxScoreBool)
-            print(scoreHigh)
-            print(scoreLow)
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
             for comment in queryResult:
                 if comment in comments:

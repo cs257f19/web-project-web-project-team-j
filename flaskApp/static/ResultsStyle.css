@@ -89,6 +89,7 @@ p {
 #score{
   display: inline-block;
   padding-left: 10px;
+  padding-right: 20px;
 }
 #sentiment{
   display: inline-block;

@@ -23,6 +23,7 @@ def get_results():
     Returns:
         -results.html page formatted with comments
     '''
+
     comments = []
     errors = []
     ds = datasource.DataSource()
@@ -34,9 +35,47 @@ def get_results():
     gildedBool = False
     keywordBool = False
 
-    if request.method == "POST":
-        #get keywords, other comment specs from submitted form
-        # **CURRENTLY SUPPORTS SCORE QUERIES ONLY**
+    if request.method == 'POST':
+
+        # get keywords, other comment specs from submitted form
+
+        try:
+            goodSentiment = request.form['goodSentiment']
+            queryResult = ds.getSentimentGood()
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            goodSentBool = True
+        except:
+            pass
+
+        try:
+            badSentiment = request.form['badSentiment']
+            queryResult = ds.getSentimentBad()
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            badSentBool = True
+        except:
+
+            pass
+
+        try:
+            keywords = request.form['keywords']
+            queryResult = ds.KeywordSearch(keywords)
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            keywordBool = True
+        except:
+            pass
+
         try:
             scoreLow = request.form['scoreLow']
         except:
@@ -49,28 +88,28 @@ def get_results():
 
         if scoreLow and scoreHigh:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
-            for x in queryResult:
-                comments.append(x)
+            for comment in queryResult:
+                comments.append(comment)
         elif scoreLow and not scoreHigh:
             queryResult = ds.getScoreAbove(scoreLow)
-            for x in queryResult:
-                comments.append(x)
+            for comment in queryResult:
+                comments.append(comment)
         elif scoreHigh and not scoreLow:
             queryResult = ds.getScoreBelow(scoreHigh)
-            for x in queryResult:
-                comments.append(x)
+            for comment in queryResult:
+                comments.append(comment)
 
         try:
-             edited = request.form['edited']
-             queryResult = ds.getEdited("TRUE")
-             for comment in queryResult:
-                 if comment in comments:
-                     pass
-                 else:
-                     comments.append(comment)
-             editedBool = True
-            #filterEdited(comments)
+            edited = request.form['edited']
+            queryResult = ds.getEdited('TRUE')
+            for comment in queryResult:
+                if comment in comments:
+                    pass
+                else:
+                    comments.append(comment)
+            editedBool = True
         except:
+
             pass
 
         try:
@@ -94,46 +133,6 @@ def get_results():
                 else:
                     comments.append(comment)
             controvBool = True
-            #filterControversial(comments)
-        except:
-            pass
-
-
-        try:
-            goodSentiment = request.form['goodSentiment']
-            queryResult = ds.getSentimentGood()
-            for comment in queryResult:
-                if comment in comments:
-                    pass
-                else:
-                    comments.append(comment)
-            goodSentBool = True
-            #filterForGoodSentiment(comments)
-        except:
-            pass
-
-        try:
-             badSentiment = request.form['badSentiment']
-             queryResult = ds.getSentimentBad()
-             for comment in queryResult:
-                 if comment in comments:
-                     pass
-                 else:
-                     comments.append(comment)
-             badSentBool = True
-            #filterForBadSentiment(comments)
-        except:
-            pass
-
-        try:
-             keywords = request.form['keywords']
-             queryResult = ds.KeywordSearch(keywords)
-             for comment in queryResult:
-                 if comment in comments:
-                     pass
-                 else:
-                     comments.append(comment)
-             keywordBool = True
         except:
             pass
 
@@ -154,7 +153,7 @@ def get_results():
 
         if keywordBool:
             filterForKeywords(comments, keywords)
-            print('Error in Keyword Bool')
+            print ('Error in Keyword Bool')
 
     return render_template('resultsTemplate.html', comments=comments)
 
@@ -186,7 +185,7 @@ def filterControversial(list):
 
 def filterForKeywords(list, keywords):
     for entry in list:
-        if keywords not in entry.getBody():
+        if keywords.lower() not in (entry.getBody()).lower():
             print(entry)
             list.remove(entry)
 

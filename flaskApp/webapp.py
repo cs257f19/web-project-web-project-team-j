@@ -224,7 +224,7 @@ def filterGilded(list):
 
 def filterEdited(list):
     for entry in list:
-        if entry.getEdited("TRUE") != 'TRUE':
+        if entry.getEdited() != 'TRUE':
             print("removed non edited")
             list.remove(entry)
 

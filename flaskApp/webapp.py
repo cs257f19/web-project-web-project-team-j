@@ -205,51 +205,44 @@ def filterForBadSentiment(list):
     for entry in list:
         if entry.getSentiment() > 0:
             print("removed good sent")
-            #list.remove(entry)
-            del(entry)
+            list.remove(entry)
 
 def filterForGoodSentiment(list):
     for entry in list:
         if entry.getSentiment() < 0:
             print("removed bad sent")
-            #list.remove(entry)
-            del(entry)
+            list.remove(entry)
 
 def filterGilded(list):
     for entry in list:
         if entry.getGuilded() != 1:
             print("removed non gilded")
-            #list.remove(entry)
-            del(entry)
+            list.remove(entry)
 
 def filterEdited(list):
     for entry in list:
         if entry.getEdited() != 'TRUE':
             print("removed non edited")
-            #list.remove(entry)
-            del(entry)
+            list.remove(entry)
 
 def filterControversial(list):
     for entry in list:
         if entry.getControversiality() != 1:
             print("removed non controversial")
-            #list.remove(entry)
-            del(entry)
+            list.remove(entry)
 
 def filterScore(list, scoreMin= -1000, scoreMax=2000):
     for entry in list:
         if (entry.getScore() > int(scoreMax)) or (entry.getScore() < int(scoreMin)):
             print("removed non score")
-            #list.remove(entry)
-            del(entry)
+            list.remove(entry)
 
 
 def filterForKeywords(list, keywords):
     for entry in list:
         if keywords.lower() not in (entry.getBody()).lower():
             print("removed non keyword")
-            #list.remove(entry)
-            del(entry)
+            list.remove(entry)
 
 @app.route('/', methods = ['GET', 'POST'])
 def root():

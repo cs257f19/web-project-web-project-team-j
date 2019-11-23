@@ -246,6 +246,7 @@ def filterForKeywords(list, keywords):
     for entry in list:
         if keywords.lower() not in (entry.getBody()).lower():
             print("removed non keyword")
+            print(comment.edited)
             list.remove(entry)
 
 @app.route('/', methods = ['GET', 'POST'])

@@ -161,6 +161,8 @@ def get_results():
         except:
             pass
 
+        print(len(comments))
+
         if gildedBool:
             filterGilded(comments)
 
@@ -188,8 +190,8 @@ def get_results():
         if maxScoreBool and not minScoreBool:
             filterScore(comments, -1000, scoreHigh)
 
+        print(len(comments))
 
-        print(comments[0].getSentiment())
 
     return render_template('resultsTemplate.html', comments=comments)
 

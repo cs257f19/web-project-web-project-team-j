@@ -365,7 +365,7 @@ class DataSource:
 		'''
 		if input == 'TRUE':
 			cursor = self.connection.cursor()
-			query = "SELECT * FROM mydata WHERE edited='TRUE'"
+			query = "SELECT * FROM mydata WHERE edited!='FALSE'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 

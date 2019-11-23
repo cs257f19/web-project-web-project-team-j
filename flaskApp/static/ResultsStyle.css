@@ -91,6 +91,10 @@ p {
   padding-left: 10px;
   padding-right: 20px;
 }
+.spacer{
+  width:20px;
+}
+
 #sentiment{
   display: inline-block;
 }

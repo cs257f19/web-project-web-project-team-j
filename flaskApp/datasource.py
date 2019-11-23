@@ -50,6 +50,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -92,6 +93,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -135,6 +137,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -167,6 +170,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -208,6 +212,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -250,6 +255,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -288,6 +294,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -326,6 +333,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -370,6 +378,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])
@@ -397,6 +406,7 @@ class DataSource:
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])
+				comment.setLink(result[5])
 				comment.setBody(result[6])
 				comment.setControversiality(result[7])
 				comment.setEdited(result[9])

@@ -90,15 +90,15 @@ def get_results():
 
         try:
             scoreLow = request.form['scoreLow']
-            if scoreLow != "":
+            if scoreLow != '':
                 minScoreBool = True
         except:
             pass
 
         try:
             scoreHigh = request.form['scoreHigh']
-            if scoreHigh != "":
-                minScoreBool = True
+            if scoreHigh != '':
+                maxScoreBool = True
         except:
             pass
 
@@ -110,7 +110,7 @@ def get_results():
                 else:
                     comments.append(comment)
 
-        elif minScoreBool and not maxScoreBool:
+        if minScoreBool and not maxScoreBool:
             queryResult = ds.getScoreAbove(scoreLow)
             for comment in queryResult:
                 if comment in comments:
@@ -118,7 +118,7 @@ def get_results():
                 else:
                     comments.append(comment)
 
-        elif maxScoreBool and not minScoreBool:
+        if maxScoreBool and not minScoreBool:
             queryResult = ds.getScoreBelow(scoreHigh)
             for comment in queryResult:
                 if comment in comments:
@@ -236,7 +236,6 @@ def filterScore(list, scoreMin= -1000, scoreMax=2000):
         if (entry.getScore() > int(scoreMax)) or (entry.getScore() < int(scoreMin)):
             print("removed non score")
             list.remove(entry)
-
 
 def filterForKeywords(list, keywords):
     for entry in list:

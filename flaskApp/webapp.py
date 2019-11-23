@@ -235,6 +235,8 @@ def filterControversial(list):
             list.remove(entry)
 
 def filterScore(list, scoreMin= -1000, scoreMax=2000):
+    print("min",scoreMin)
+    print("max",scoreMax)
     for entry in list:
         if (entry.getScore() > int(scoreMax)) or (entry.getScore() < int(scoreMin)):
             print("removed non score")

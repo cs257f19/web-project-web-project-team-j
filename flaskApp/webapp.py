@@ -191,6 +191,10 @@ def get_results():
         if maxScoreBool and not minScoreBool:
             filterScore(comments, -1000, scoreHigh)
 
+        print("badSentBool", badSentBool)
+        print("goodsent bool", goodSentBool)
+        print("keywordbool", keywordBool)
+
         print(len(comments))
 
 

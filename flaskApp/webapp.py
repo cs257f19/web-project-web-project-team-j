@@ -102,6 +102,9 @@ def get_results():
         except:
             pass
 
+        print(minScoreBool)
+        print(maxScoreBool)
+
         if minScoreBool and maxScoreBool:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
             for comment in queryResult:

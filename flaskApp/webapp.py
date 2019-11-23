@@ -188,6 +188,9 @@ def get_results():
         if maxScoreBool and not minScoreBool:
             filterScore(comments, -1000, scoreHigh)
 
+
+        print(comments[0].getSentiment())
+
     return render_template('resultsTemplate.html', comments=comments)
 
 def filterForBadSentiment(list):

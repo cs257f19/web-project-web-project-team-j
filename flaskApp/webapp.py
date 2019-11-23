@@ -221,7 +221,7 @@ def filterEdited(list):
 
 def filterControversial(list):
     for entry in list:
-        if entry.getControversial() != 1:
+        if entry.getControversiality() != 1:
             print("removed non controversial")
             list.remove(entry)
 

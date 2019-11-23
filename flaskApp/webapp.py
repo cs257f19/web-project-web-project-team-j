@@ -45,13 +45,14 @@ def get_results():
 
         try:
             keywords = request.form['keywords']
-            queryResult = ds.KeywordSearch(keywords)
-            for comment in queryResult:
-                if comment in comments:
-                    pass
-                else:
-                    comments.append(comment)
-            keywordBool = True
+            if keywords != "":
+                queryResult = ds.KeywordSearch(keywords)
+                for comment in queryResult:
+                    if comment in comments:
+                        pass
+                    else:
+                        comments.append(comment)
+                keywordBool = True
         except:
             pass
 

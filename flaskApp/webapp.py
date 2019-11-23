@@ -207,7 +207,6 @@ def filterForGoodSentiment(list):
     for entry in list:
         if entry.getSentiment() < 0:
             print("removed bad sent")
-            print(entry.getSentiment())
             list.remove(entry)
 
 def filterGilded(list):

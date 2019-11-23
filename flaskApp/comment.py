@@ -109,9 +109,9 @@ class Comment():
             edited - the edited status of the comment ('TRUE'/'FALSE')
         '''
         if edited.isalpha():
-            self.edited = "False"
+            self.edited = "FALSE"
         else:
-            self.edited = "True"
+            self.edited = "TRUE"
 
     def getGuilded(self):
         '''

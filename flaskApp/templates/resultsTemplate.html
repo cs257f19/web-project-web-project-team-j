@@ -134,7 +134,9 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">r/politics</li>
+    {% if comment.edited == 'TRUE' %}
     <li class="list-group-item">Edited</li>
+    {%endif%}
     {% if comment.gilded == 1 %}
     <li class="list-group-item">Gilded</li>
     {%endif%}

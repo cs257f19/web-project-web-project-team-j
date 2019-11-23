@@ -8,13 +8,13 @@ body{
 
 h1  {
   font-family: Open Sans;
-  text-align: justify;
+  text-align: center;
   font-weight: bolder;
 }
 
 h2  {
   font-family: Open Sans;
-  text-align: justify;
+  text-align: center;
   opacity: 0.9;
   font-weight: bold;
 }

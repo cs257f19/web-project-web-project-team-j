@@ -402,7 +402,6 @@ class DataSource:
 			for result in results:
 				#instantiate new comment object
 				comment = Comment()
-
 				# set fields of comment object
 				comment.setAuthor(result[2])
 				comment.setScore(result[3])

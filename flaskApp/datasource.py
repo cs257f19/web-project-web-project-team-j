@@ -124,7 +124,8 @@ class DataSource:
 		'''
 		try:
 			cursor = self.connection.cursor()
-			query = "SELECT * FROM mydata WHERE score BETWEEN " + str(start) + " AND " + str(end)
+			#query = "SELECT * FROM mydata WHERE score BETWEEN " + str(start) + " AND " + str(end)
+			query = "SELECT * FROM mydata WHERE score >= " + str(start) + " AND " + "score <= "+str(end)
 			cursor.execute(query)
 			results = cursor.fetchall()
 

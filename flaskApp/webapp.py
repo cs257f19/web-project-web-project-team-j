@@ -102,9 +102,6 @@ def get_results():
         except:
             pass
 
-        print(minScoreBool)
-        print(maxScoreBool)
-
         if minScoreBool and maxScoreBool:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
             for comment in queryResult:
@@ -171,6 +168,11 @@ def get_results():
         print("goodsent bool", goodSentBool)
         print("keywordbool", keywordBool)
 
+
+        filterResults(comments, request.form)
+
+'''
+
         if gildedBool:
             filterGilded(comments)
 
@@ -200,9 +202,54 @@ def get_results():
 
         print(len(comments))
 
+'''
+
 
 
     return render_template('resultsTemplate.html', comments=comments)
+
+
+
+def filterResults(comments, form):
+    for field in form[0]:
+        for comment in comments:
+
+            if field[0] == 'keywords':
+                if field[1] != '':
+                    if comment.getBody() != field[1]:
+                        comments.remove(comment)
+
+            if field[0] == 'edited':
+                if commend.getEdited() == 'FALSE':
+                    comments.remove(comment)
+
+            if field[0] == 'gilded':
+                if commend.getGuilded() == 0:
+                    comments.remove(comment)
+
+            if field[0] == 'controversial':
+                if commend.getControversial() == 0:
+                    comments.remove(comment)
+
+            if field[0] == 'goodsentiment':
+                if commend.getSentiment() < 0:
+                    comments.remove(comment)
+
+            if field[0] == 'badsentiment':
+                if commend.getSentiment() > 0:
+                    comments.remove(comment)
+
+            if field[0] == 'scoreLow':
+                if commend.getScore() > field[1]:
+                    comments.remove(comment)
+
+            if field[0] == 'scoreHigh':
+                if commend.getScore() < field[1]:
+                    comments.remove(comment)
+
+
+
+'''
 
 def filterForBadSentiment(list):
     for entry in list:
@@ -235,8 +282,6 @@ def filterControversial(list):
             list.remove(entry)
 
 def filterScore(list, scoreMin= -1000, scoreMax=2000):
-    print("min",scoreMin)
-    print("max",scoreMax)
     for entry in list:
         if (entry.getScore() > int(scoreMax)) or (entry.getScore() < int(scoreMin)):
             print("removed non score")
@@ -246,8 +291,9 @@ def filterForKeywords(list, keywords):
     for entry in list:
         if keywords.lower() not in (entry.getBody()).lower():
             print("removed non keyword")
-            print(entry.edited)
             list.remove(entry)
+
+'''
 
 @app.route('/', methods = ['GET', 'POST'])
 def root():

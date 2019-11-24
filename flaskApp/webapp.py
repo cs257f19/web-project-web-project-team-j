@@ -206,7 +206,9 @@ def get_results():
 
 def filterResults(comments, form):
     for field in form[0]:
-        print(field)
+        print("field",field)
+        print(field[0])
+        print("form", form)
         for comment in comments:
 
             if field[0] == 'keywords':

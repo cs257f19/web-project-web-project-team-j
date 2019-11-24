@@ -212,37 +212,37 @@ def filterResults(comments, form):
             if field == 'keywords':
                 if field[1] != '':
                     if comment.getBody() != request.form[field]:
-                        comments.remove(comment)
+                        del(comment)
 
             if field == 'edited':
                 if comment.getEdited() == 'FALSE':
-                    comments.remove(comment)
+                    del(comment)
 
             if field == 'gilded':
                 if comment.getGuilded() == 0:
-                    comments.remove(comment)
+                    del(comment)
 
             if field == 'controversial':
                 if comment.getControversiality() == 0:
-                    comments.remove(comment)
+                    del(comment)
 
             if field == 'goodsentiment':
                 if comment.getSentiment() < 0:
-                    comments.remove(comment)
+                    del(comment)
 
             if field == 'badsentiment':
                 if comment.getSentiment() > 0:
-                    comments.remove(comment)
+                    del(comment)
 
             if field == 'scoreLow':
                 if request.form[field] != '':
                     if comment.getScore() > int(request.form[field]):
-                        comments.remove(comment)
+                        del(comment)
 
             if field == 'scoreHigh':
                 if request.form[field] != '':
                     if comment.getScore() < int(request.form[field]):
-                        comments.remove(comment)
+                        del(comment)
 
 
     return comments

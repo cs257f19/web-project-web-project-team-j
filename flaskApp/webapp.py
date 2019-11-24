@@ -228,12 +228,12 @@ def filterResults(comments, form):
 
             if field == 'goodSentiment':
                 print("type",type(comment.getSentiment()))
-                if comment.getSentiment() < 0:
+                if float(comment.getSentiment()) < 0:
                     del(comment)
 
             if field == 'badSentiment':
                 print("type",type(comment.getSentiment()))
-                if comment.getSentiment() > 0:
+                if float(comment.getSentiment()) > 0:
                     del(comment)
 
             if field == 'scoreLow':

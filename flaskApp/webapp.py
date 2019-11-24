@@ -171,12 +171,12 @@ def get_results():
 
         Results = filterResults(comments, request.form)
 
-        '''
+
         for comment in Results:
             if float(comment.getSentiment()) > 0:
                 print("we bonked")
                 Results.remove(comment)
-        '''
+
         print("after",len(Results))
         return render_template('resultsTemplate.html', comments=Results)
 '''
@@ -213,49 +213,50 @@ def get_results():
         #return render_template('resultsTemplate.html', comments=comments)
 
 def filterResults(comments, form):
+    filteredArray = []
     for field in form.keys():
         #print("field", field)
         for comment in comments:
             #print(float(comment.getSentiment()) > 0)
             if field == 'keywords':
                 if field[1] != '':
-                    if request.form[field].lower() not in comment.getBody().lower():
-                        comments.remove(comment)
+                    if request.form[field].lower() in comment.getBody().lower():
+                        filteredArray.append(comment)
 
             if field == 'edited':
-                if comment.getEdited() == 'FALSE':
-                    comments.remove(comment)
+                if comment.getEdited() == 'TRUE':
+                    filteredArray.append(comment)
 
             if field == 'gilded':
-                if comment.getGuilded() == 0:
-                    comments.remove(comment)
+                if comment.getGuilded() == 1:
+                    filteredArray.append(comment)
 
             if field == 'controversial':
-                if comment.getControversiality() == 0:
-                    comments.remove(comment)
+                if comment.getControversiality() == 1:
+                    filteredArray.append(comment)
 
             if field == 'goodSentiment':
                 print("type",type(comment.getSentiment()))
-                if float(comment.getSentiment()) < 0:
-                    comments.remove(comment)
+                if float(comment.getSentiment()) > 0:
+                    filteredArray.append(comment)
 
             if field == 'badSentiment':
                 #print("type",type(comment.getSentiment()))
-                if float(comment.getSentiment()) > 0:
-                    comments.remove(comment)
+                if float(comment.getSentiment()) < 0:
+                    filteredArray.append(comment)
 
             if field == 'scoreLow':
                 if request.form[field] != '':
                     if comment.getScore() > int(request.form[field]):
-                        comments.remove(comment)
+                        filteredArray.append(comment)
 
             if field == 'scoreHigh':
                 if request.form[field] != '':
                     if comment.getScore() < int(request.form[field]):
-                        comments.remove(comment)
+                        filteredArray.append(comment)
 
 
-    return comments
+    return filteredArray
 '''
 
 def filterForBadSentiment(list):

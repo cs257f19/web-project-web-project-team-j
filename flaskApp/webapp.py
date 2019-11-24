@@ -170,6 +170,11 @@ def get_results():
 
 
         Results = filterResults(comments, request.form)
+        
+        for comment in Results:
+            if float(comment.getSentiment()) > 0:
+                print("we bonked")
+
         print("after",len(comments))
         return render_template('resultsTemplate.html', comments=Results)
 '''
@@ -209,7 +214,7 @@ def filterResults(comments, form):
     for field in form.keys():
         #print("field", field)
         for comment in comments:
-            print(float(comment.getSentiment()) > 0)
+            #print(float(comment.getSentiment()) > 0)
             if field == 'keywords':
                 if field[1] != '':
                     if request.form[field].lower() not in comment.getBody().lower():

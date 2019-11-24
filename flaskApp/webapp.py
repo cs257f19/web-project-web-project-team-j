@@ -281,6 +281,14 @@ def about():
         return render_template('About.html')
 
 
+@app.route('/dataviz.html', methods = ['GET'])
+def about():
+        '''
+        Returns dataviz.html when requested
+        '''
+        return render_template('dataviz.html')
+
+
 if __name__ == '__main__':
     if len(sys.argv) != 3:
         print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)

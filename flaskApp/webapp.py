@@ -171,11 +171,12 @@ def get_results():
 
         Results = filterResults(comments, request.form)
 
+        '''
         for comment in Results:
             if float(comment.getSentiment()) > 0:
                 print("we bonked")
                 Results.remove(comment)
-
+        '''
         print("after",len(Results))
         return render_template('resultsTemplate.html', comments=Results)
 '''

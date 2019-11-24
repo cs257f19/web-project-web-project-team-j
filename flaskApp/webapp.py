@@ -169,9 +169,9 @@ def get_results():
         #print("keywordbool", keywordBool)
 
 
-        filterResults(comments, request.form)
+        Results = filterResults(comments, request.form)
         print("after",len(comments))
-        return render_template('resultsTemplate.html', comments=comments)
+        return render_template('resultsTemplate.html', comments=Results)
 '''
         if gildedBool:
             filterGilded(comments)
@@ -223,7 +223,7 @@ def filterResults(comments, form):
                     comments.remove(comment)
 
             if field == 'controversial':
-                if comment.getControversial() == 0:
+                if comment.getControversiality() == 0:
                     comments.remove(comment)
 
             if field == 'goodsentiment':
@@ -243,6 +243,9 @@ def filterResults(comments, form):
                 if request.form[field] != '':
                     if comment.getScore() < int(request.form[field]):
                         comments.remove(comment)
+
+
+    return comments
 '''
 
 def filterForBadSentiment(list):

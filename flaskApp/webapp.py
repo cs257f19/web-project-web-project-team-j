@@ -173,21 +173,14 @@ def get_results():
 
         print("b4", len(Results))
 
-        newArray = []
-        for comment in Results:
-            if comment.getSentiment() < 0:
-                newArray.append(comment)
 
-        for comment in newArray:
-            if float(comment.getSentiment()) > 0:
-                print("we bonked", comment.getSentiment())
-        """
+
         for comment in Results:
             if float(comment.getSentiment()) > 0:
                 print("we bonked")
                 print(type(Results))
                 Results.remove(comment)
-        """
+
         print("after", len(newArray))
         #print("after",len(Results))
         return render_template('resultsTemplate.html', comments=newArray)
@@ -227,7 +220,7 @@ def get_results():
 def filterResults(comments, form):
     for field in form.keys():
         #print("field", field)
-        for comment in comments:
+        for comment in comments[:]:
             #print(float(comment.getSentiment()) > 0)
             if field == 'keywords':
                 if field[1] != '':

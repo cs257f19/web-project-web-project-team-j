@@ -9,7 +9,7 @@ class Comment():
         self.author = ""
         self.score = 0
         self.stickied = ""
-        self.link_ID = ""
+        self.linkID = ""
         self.body = ""
         self.contoversiality = 0
         self.retrieved_on = 0
@@ -108,7 +108,10 @@ class Comment():
         Parameters:
             edited - the edited status of the comment ('TRUE'/'FALSE')
         '''
-        self.edited = edited
+        if edited.isalpha():
+            self.edited = "FALSE"
+        else:
+            self.edited = "TRUE"
 
     def getGuilded(self):
         '''
@@ -165,3 +168,21 @@ class Comment():
             sentimentScore - sentiment score of a comment (from -1 to 1)
         '''
         self.sentiment = sentimentScore
+
+    def getLink(self):
+        '''
+        Retrieves the sentiment score (-1,1) of a comment
+
+		Returns:
+			The sentiment score of a comment (float)
+        '''
+        return self.linkID
+
+    def setLink(self, link):
+        '''
+        sets the sentiment score of a comment
+
+        Parameters:
+            sentimentScore - sentiment score of a comment (from -1 to 1)
+        '''
+        self.linkID = link[3:]

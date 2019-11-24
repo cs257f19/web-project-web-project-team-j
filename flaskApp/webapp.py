@@ -206,6 +206,7 @@ def get_results():
 
 def filterResults(comments, form):
     for field in form[0]:
+        print(field)
         for comment in comments:
 
             if field[0] == 'keywords':
@@ -240,9 +241,6 @@ def filterResults(comments, form):
             if field[0] == 'scoreHigh':
                 if commend.getScore() < field[1]:
                     comments.remove(comment)
-
-
-
 '''
 
 def filterForBadSentiment(list):

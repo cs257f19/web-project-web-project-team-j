@@ -162,14 +162,15 @@ def get_results():
         except:
             pass
 
-        print(len(comments))
+        print("before",len(comments))
 
-        print("badSentBool", badSentBool)
-        print("goodsent bool", goodSentBool)
-        print("keywordbool", keywordBool)
+        #print("badSentBool", badSentBool)
+        #print("goodsent bool", goodSentBool)
+        #print("keywordbool", keywordBool)
 
 
         filterResults(comments, request.form)
+        print("after",len(comments))
         return render_template('resultsTemplate.html', comments=comments)
 '''
         if gildedBool:
@@ -240,7 +241,7 @@ def filterResults(comments, form):
 
             if field == 'scoreHigh':
                 if request.form[field] != '':
-                    if commend.getScore() < int(request.form[field]):
+                    if comment.getScore() < int(request.form[field]):
                         comments.remove(comment)
 '''
 

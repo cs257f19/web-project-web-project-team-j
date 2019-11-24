@@ -170,12 +170,12 @@ def get_results():
 
 
         Results = filterResults(comments, request.form)
-        
+
         for comment in Results:
             if float(comment.getSentiment()) > 0:
                 print("we bonked")
 
-        print("after",len(comments))
+        print("after",len(Results))
         return render_template('resultsTemplate.html', comments=Results)
 '''
         if gildedBool:
@@ -238,7 +238,7 @@ def filterResults(comments, form):
                     del(comment)
 
             if field == 'badSentiment':
-                print("type",type(comment.getSentiment()))
+                #print("type",type(comment.getSentiment()))
                 if float(comment.getSentiment()) > 0:
                     del(comment)
 

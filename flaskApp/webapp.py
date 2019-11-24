@@ -205,43 +205,40 @@ def get_results():
         #return render_template('resultsTemplate.html', comments=comments)
 
 def filterResults(comments, form):
-    for field in form[0]:
-        print("field",field)
-        print(field[0])
-        print("form", form)
+    for field in form.keys():
+        print("field", field)
         for comment in comments:
-
-            if field[0] == 'keywords':
+            if field == 'keywords':
                 if field[1] != '':
-                    if comment.getBody() != field[1]:
+                    if comment.getBody() != request.form[field]::
                         comments.remove(comment)
 
-            if field[0] == 'edited':
+            if field == 'edited':
                 if commend.getEdited() == 'FALSE':
                     comments.remove(comment)
 
-            if field[0] == 'gilded':
+            if field == 'gilded':
                 if commend.getGuilded() == 0:
                     comments.remove(comment)
 
-            if field[0] == 'controversial':
+            if field == 'controversial':
                 if commend.getControversial() == 0:
                     comments.remove(comment)
 
-            if field[0] == 'goodsentiment':
+            if field == 'goodsentiment':
                 if commend.getSentiment() < 0:
                     comments.remove(comment)
 
-            if field[0] == 'badsentiment':
+            if field == 'badsentiment':
                 if commend.getSentiment() > 0:
                     comments.remove(comment)
 
-            if field[0] == 'scoreLow':
-                if commend.getScore() > field[1]:
+            if field == 'scoreLow':
+                if commend.getScore() > request.form[field]:
                     comments.remove(comment)
 
-            if field[0] == 'scoreHigh':
-                if commend.getScore() < field[1]:
+            if field == 'scoreHigh':
+                if commend.getScore() < request.form[field]:
                     comments.remove(comment)
 '''
 

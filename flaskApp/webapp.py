@@ -227,6 +227,7 @@ def filterResults(comments, form):
                     del(comment)
 
             if field == 'goodsentiment':
+                print("type",type(comment.getSentiment()))
                 if comment.getSentiment() < 0:
                     del(comment)
 

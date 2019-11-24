@@ -234,12 +234,14 @@ def filterResults(comments, form):
                     comments.remove(comment)
 
             if field == 'scoreLow':
-                if comment.getScore() > int(request.form[field]):
-                    comments.remove(comment)
+                if field != "":
+                    if comment.getScore() > int(request.form[field]):
+                        comments.remove(comment)
 
             if field == 'scoreHigh':
-                if commend.getScore() < int(request.form[field]):
-                    comments.remove(comment)
+                if field != "":
+                    if commend.getScore() < int(request.form[field]):
+                        comments.remove(comment)
 '''
 
 def filterForBadSentiment(list):

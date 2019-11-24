@@ -207,8 +207,9 @@ def get_results():
 
 def filterResults(comments, form):
     for field in form.keys():
-        print("field", field)
+        #print("field", field)
         for comment in comments:
+            print(float(comment.getSentiment()) > 0)
             if field == 'keywords':
                 if field[1] != '':
                     if request.form[field].lower() not in comment.getBody().lower():

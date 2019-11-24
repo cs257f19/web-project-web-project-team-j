@@ -172,7 +172,6 @@ def get_results():
         filterResults(comments, request.form)
 
 '''
-
         if gildedBool:
             filterGilded(comments)
 
@@ -203,10 +202,7 @@ def get_results():
         print(len(comments))
 
 '''
-
-
-
-    return render_template('resultsTemplate.html', comments=comments)
+        return render_template('resultsTemplate.html', comments=comments)
 
 
 

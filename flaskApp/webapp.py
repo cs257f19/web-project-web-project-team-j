@@ -210,7 +210,7 @@ def filterResults(comments, form):
         for comment in comments:
             if field == 'keywords':
                 if field[1] != '':
-                    if comment.getBody() != request.form[field]::
+                    if comment.getBody() != request.form[field]:
                         comments.remove(comment)
 
             if field == 'edited':

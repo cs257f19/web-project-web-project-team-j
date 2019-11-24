@@ -162,7 +162,7 @@ def get_results():
         except:
             pass
 
-        print("before",len(comments))
+        #print("before",len(comments))
 
         #print("badSentBool", badSentBool)
         #print("goodsent bool", goodSentBool)
@@ -171,14 +171,16 @@ def get_results():
 
         Results = filterResults(comments, request.form)
 
-
+        print("b4", len(Results))
+        
         for comment in Results:
             if float(comment.getSentiment()) > 0:
                 print("we bonked")
                 print(type(Results))
                 Results.remove(comment)
 
-        print("after",len(Results))
+        print("after", len(Results))
+        #print("after",len(Results))
         return render_template('resultsTemplate.html', comments=Results)
 '''
         if gildedBool:

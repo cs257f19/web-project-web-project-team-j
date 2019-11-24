@@ -173,11 +173,12 @@ def get_results():
 
         print("b4", len(Results))
 
-        for i in range(0,len(Results)-2):
-            if Results[i].getSentiment() >0:
-                del(Results[i])
-
+        newArray = []
         for comment in Results:
+            if comment.getSentiment() < 0:
+                newArray.append(comment)
+
+        for comment in newArray:
             if float(comment.getSentiment()) > 0:
                 print("we bonked", comment.getSentiment())
         """
@@ -187,7 +188,7 @@ def get_results():
                 print(type(Results))
                 Results.remove(comment)
         """
-        print("after", len(Results))
+        print("after", len(newArray))
         #print("after",len(Results))
         return render_template('resultsTemplate.html', comments=Results)
 '''

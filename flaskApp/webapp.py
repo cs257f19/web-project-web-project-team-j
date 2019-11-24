@@ -173,7 +173,7 @@ def get_results():
 
         print("b4", len(Results))
 
-        for i in range(0,len(Results)-1):
+        for i in range(0,len(Results)-2):
             if Results[i].getSentiment() >0:
                 del(Results[i])
 

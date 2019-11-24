@@ -234,11 +234,11 @@ def filterResults(comments, form):
                     comments.remove(comment)
 
             if field == 'scoreLow':
-                if comment.getScore() > request.form[field]:
+                if comment.getScore() > int(request.form[field]):
                     comments.remove(comment)
 
             if field == 'scoreHigh':
-                if commend.getScore() < request.form[field]:
+                if commend.getScore() < int(request.form[field]):
                     comments.remove(comment)
 '''
 

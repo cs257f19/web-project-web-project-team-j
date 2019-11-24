@@ -171,7 +171,6 @@ def get_results():
 
         filterResults(comments, request.form)
         return render_template('resultsTemplate.html', comments=comments)
-
 '''
         if gildedBool:
             filterGilded(comments)

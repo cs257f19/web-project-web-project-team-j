@@ -183,7 +183,7 @@ def get_results():
 
         print("after", len(Results))
         #print("after",len(Results))
-        return render_template('resultsTemplate.html', comments=newArray)
+        return render_template('resultsTemplate.html', comments=Results)
 '''
         if gildedBool:
             filterGilded(comments)

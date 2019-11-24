@@ -282,7 +282,7 @@ def about():
 
 
 @app.route('/dataviz.html', methods = ['GET'])
-def about():
+def dataviz():
         '''
         Returns dataviz.html when requested
         '''

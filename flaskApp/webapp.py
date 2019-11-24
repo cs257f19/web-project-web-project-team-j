@@ -226,12 +226,13 @@ def filterResults(comments, form):
                 if comment.getControversiality() == 0:
                     del(comment)
 
-            if field == 'goodsentiment':
+            if field == 'goodSentiment':
                 print("type",type(comment.getSentiment()))
                 if comment.getSentiment() < 0:
                     del(comment)
 
-            if field == 'badsentiment':
+            if field == 'badSentiment':
+                print("type",type(comment.getSentiment()))
                 if comment.getSentiment() > 0:
                     del(comment)
 

@@ -29,11 +29,68 @@
   <br>
   <br>
   <div class="search-container">
-    <form class="form-inline ml-auto mr-auto w-100">
-      <input class="form-control form-control-md ml-25 mr-20 w-100" type="text" placeholder="Search for users, keywords, upvotes and more!"
-      aria-label="Search">
+    <form class="form-inline ml-auto mr-auto w-100" method="POST" action="/results">
+      <input class="form-control form-control-md ml-25 mr-20 w-75" type="text" placeholder="Search for users, keywords, upvotes and more!"
+      aria-label="Search" name="keywords">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Advanced search
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+
+          <div class="form-check float-left">
+            <input class="form-check-input" type="checkbox" name="edited" id="edited">
+            <label class="form-check-label" for="defaultCheck1">
+              Edited Only
+            </label>
+          </div>
+
+          <div class="form-check float-left">
+            <input class="form-check-input" type="checkbox" name="gilded" id="gilded">
+            <label class="form-check-label" for="defaultCheck1">
+              Gilded Only
+            </label>
+          </div>
+
+          <div class="form-check float-left">
+            <input class="form-check-input" type="checkbox" name="controversial" id="controversial">
+            <label class="form-check-label" for="defaultCheck1">
+              Controversial Only
+            </label>
+          </div>
+
+          <div class="form-check float-left">
+            <input class="form-check-input" type="checkbox" name="goodSentiment" id="good sentiment">
+            <label class="form-check-label" for="defaultCheck1">
+              Good Sentiment
+            </label>
+          </div>
+
+          <div class="form-check float-left">
+            <input class="form-check-input" type="checkbox" name="badSentiment" id="bad sentiment">
+            <label class="form-check-label" for="defaultCheck1">
+              Bad Sentiment
+            </label>
+          </div>
+
+          <br>
+          <sm class="float-left">Score Range</sm>
+          <br>
+          <div class="row float-left">
+              <div class="col">
+                <input type="text" class="form-control w-75" placeholder="0" name="scoreLow">
+              </div>
+              <sm class="ml-0 mr-0 pl-0 pr-0">to</sm>
+              <div class="col">
+                <input type="text" class="form-control w-75" placeholder="0" name="scoreHigh">
+              </div>
+          </div>
+
+
+        </div>
+      </div>
       <div class="input-group-append mr-auto ml-auto mt-100">
-        <button class="btn btn-outline-primary" type="button">Search</button>
+        <button class="btn btn-outline-primary" type="submit">Search</button>
       </div>
     </form>
   </div>

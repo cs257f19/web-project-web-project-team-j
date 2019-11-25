@@ -1,8 +1,13 @@
+'''
+Comment.py: a comment class that encapsulates all attributes of our comment objects
+by Cole Hanson, Chait Sayani and James Craig
+'''
 
 import time
 
 class Comment():
 
+    #initial constructor defining comment attributes
     def __init__(self):
         self.subreddit = ""
         self.subreddit_ID = ""
@@ -20,6 +25,7 @@ class Comment():
         self.created_UTC = ""
         self.sentiment = 0
 
+    #retreives comment author
     def getAuthor(self):
         '''
         Retrieves the author of a comment
@@ -29,6 +35,7 @@ class Comment():
         '''
         return self.author
 
+    #sets comment author
     def setAuthor(self, author):
         '''
         sets the author of a comment
@@ -38,6 +45,7 @@ class Comment():
         '''
         self.author = author
 
+    #retreives comment score
     def getScore(self):
         '''
         Retrieves the score of a comment
@@ -47,6 +55,7 @@ class Comment():
         '''
         return self.score
 
+    #sets comment score attribute
     def setScore(self, score):
         '''
         sets the score of a comment

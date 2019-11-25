@@ -7,12 +7,14 @@
 #                                      #
 ########################################
 '''
+#import dependencies
 import flask
 from flask import render_template, request
 import json
 import sys
 import datasource
 
+#creates a flask app
 app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -29,12 +31,9 @@ def get_results():
     errors = []
     ds = datasource.DataSource()
 
-    editedBool = False
-    controvBool = False
+    #initializes booleans for filtering purposes
     badSentBool = False
     goodSentBool = False
-    gildedBool = False
-    keywordBool = False
     maxScoreBool = False
     minScoreBool = False
 
@@ -43,6 +42,7 @@ def get_results():
         print(request.form)
         # get keywords, other comment specs from submitted form
 
+        #A series of try commands that conditionally execute queries based on user input
         try:
             keywords = request.form['keywords']
             if keywords != "":
@@ -67,7 +67,7 @@ def get_results():
             badSentBool = True
         except:
             pass
-
+        #returns everything if both good and bad sentiment are selected
         if badSentBool and goodSentBool:
             badSentBool = False
             goodSentBool = False
@@ -87,7 +87,7 @@ def get_results():
                     pass
                 else:
                     comments.append(comment)
-
+        #sets filtering booleans for a score query
         try:
             scoreLow = request.form['scoreLow']
             if scoreLow != '':
@@ -101,7 +101,7 @@ def get_results():
                 maxScoreBool = True
         except:
             pass
-
+        #begins appending the queries into a comment array 
         if minScoreBool and maxScoreBool:
             queryResult = ds.getScoreInRange(scoreLow, scoreHigh)
             for comment in queryResult:
@@ -162,58 +162,22 @@ def get_results():
         except:
             pass
 
-        #print("before",len(comments))
-
-        #print("badSentBool", badSentBool)
-        #print("goodsent bool", goodSentBool)
-        #print("keywordbool", keywordBool)
-
-
+        #removes comments that dont fit the query conditions
         Results = filterResults(comments, request.form)
-
-        print("b4", len(Results))
-
-        print("after", len(Results))
-        #print("after",len(Results))
+        #comment array is pushed to be rendered
         return render_template('resultsTemplate.html', comments=Results)
-'''
-        if gildedBool:
-            filterGilded(comments)
-
-        if badSentBool:
-            filterForBadSentiment(comments)
-
-        if goodSentBool:
-            filterForGoodSentiment(comments)
-
-        if controvBool:
-            filterControversial(comments)
-
-        if editedBool:
-            filterEdited(comments)
-
-        if keywordBool:
-            filterForKeywords(comments, keywords)
-
-        if minScoreBool and maxScoreBool:
-            filterScore(comments, scoreLow, scoreHigh)
-
-        if minScoreBool and not maxScoreBool:
-            filterScore(comments, scoreLow)
-
-        if maxScoreBool and not minScoreBool:
-            filterScore(comments, -1000, scoreHigh)
-
-        print(len(comments))
-
-'''
-        #return render_template('resultsTemplate.html', comments=comments)
 
 def filterResults(comments, form):
+    '''
+    Takes a comment array and conditionally filters it based on the criteria outlined
+    in the user query
+    Input: an array of comment objects, and a form request
+    output: filtered array of comment objects
+    '''
     for field in form.keys():
-        #print("field", field)
+        #for loop iterates through the fields (query conditions) to check filter criteria
         for comment in comments[:]:
-            #print(float(comment.getSentiment()) > 0)
+            #for loop iterates through comments and removes accordingly
             if field == 'keywords':
                 if field[1] != '':
                     if request.form[field].lower() not in comment.getBody().lower():
@@ -237,7 +201,6 @@ def filterResults(comments, form):
                     comments.remove(comment)
 
             if field == 'badSentiment':
-                #print("type",type(comment.getSentiment()))
                 if float(comment.getSentiment()) > 0:
                     comments.remove(comment)
 
@@ -253,51 +216,6 @@ def filterResults(comments, form):
 
 
     return comments
-'''
-
-def filterForBadSentiment(list):
-    for entry in list:
-        if entry.getSentiment() > 0:
-            print("removed good sent")
-            list.remove(entry)
-
-def filterForGoodSentiment(list):
-    for entry in list:
-        if entry.getSentiment() < 0:
-            print("removed bad sent")
-            list.remove(entry)
-
-def filterGilded(list):
-    for entry in list:
-        if entry.getGuilded() != 1:
-            print("removed non gilded")
-            list.remove(entry)
-
-def filterEdited(list):
-    for entry in list:
-        if entry.getEdited() != 'TRUE':
-            print("removed non edited")
-            list.remove(entry)
-
-def filterControversial(list):
-    for entry in list:
-        if entry.getControversiality() != 1:
-            print("removed non controversial")
-            list.remove(entry)
-
-def filterScore(list, scoreMin= -1000, scoreMax=2000):
-    for entry in list:
-        if (entry.getScore() > int(scoreMax)) or (entry.getScore() < int(scoreMin)):
-            print("removed non score")
-            list.remove(entry)
-
-def filterForKeywords(list, keywords):
-    for entry in list:
-        if keywords.lower() not in (entry.getBody()).lower():
-            print("removed non keyword")
-            list.remove(entry)
-
-'''
 
 @app.route('/', methods = ['GET', 'POST'])
 def root():

@@ -1,3 +1,7 @@
+'''
+Data Source.py: API for our website that constucts a Data Source Object that connects to our database and executes our queries
+by Chait Sayani, Cole Hanson, James Craig
+'''
 import psycopg2
 import getpass
 from comment import *

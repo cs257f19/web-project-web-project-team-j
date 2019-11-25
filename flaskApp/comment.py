@@ -1,3 +1,8 @@
+'''
+Comment.py: a comment class that encapsulates all attributes of our comment objects
+by Cole Hanson, Chait Sayani and James Craig
+'''
+
 
 import time
 
